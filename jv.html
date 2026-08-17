@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Servicio de Jóvenes 🔥</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+
+        font-family: "Segoe UI", Arial, sans-serif;
+
+        background:
+          radial-gradient(circle at top left, #673ab7, transparent 35%),
+          radial-gradient(circle at bottom right, #ff4081, transparent 35%),
+          linear-gradient(135deg, #09001a, #16002d, #25003f);
+
+        color: white;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 25px 15px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 650px;
+
+        text-align: center;
+
+        padding: 35px 25px;
+
+        background: rgba(255, 255, 255, 0.1);
+
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        border-radius: 30px;
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+        position: relative;
+
+        z-index: 5;
+      }
+
+      .emoji-top {
+        font-size: 55px;
+
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      h1 {
+        margin: 10px 0 5px;
+
+        font-size: clamp(38px, 9vw, 65px);
+
+        font-weight: 900;
+
+        background: linear-gradient(90deg, #ffca28, #ff4081, #ce93d8);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        background-clip: text;
+      }
+
+      .subtitle {
+        font-size: 22px;
+
+        margin: 10px 0 25px;
+
+        color: #eeeeee;
+      }
+
+      .date-box {
+        display: inline-block;
+
+        padding: 18px 28px;
+
+        margin: 10px 0 25px;
+
+        border-radius: 20px;
+
+        background: linear-gradient(135deg, #ff4081, #7c4dff);
+
+        box-shadow: 0 10px 30px rgba(255, 64, 129, 0.35);
+      }
+
+      .date-box .day {
+        font-size: 30px;
+        font-weight: 900;
+      }
+
+      .date-box .time {
+        font-size: 22px;
+        margin-top: 5px;
+      }
+
+      .message {
+        font-size: 20px;
+
+        line-height: 1.65;
+
+        color: #f5f5f5;
+
+        margin: 10px auto 25px;
+
+        max-width: 550px;
+      }
+
+      .highlight {
+        color: #ffca28;
+        font-weight: bold;
+      }
+
+      .verse {
+        margin: 25px auto;
+
+        padding: 18px;
+
+        border-left: 4px solid #ffca28;
+
+        background: rgba(255, 202, 40, 0.08);
+
+        border-radius: 10px;
+
+        font-size: 17px;
+
+        font-style: italic;
+
+        line-height: 1.5;
+      }
+
+      .question {
+        font-size: 24px;
+
+        font-weight: bold;
+
+        margin: 25px 0 18px;
+
+        color: #ffffff;
+      }
+
+      .buttons {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+      }
+
+      button {
+        border: none;
+
+        padding: 16px 30px;
+
+        border-radius: 50px;
+
+        font-size: 18px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        color: white;
+
+        transition: 0.3s;
+
+        min-width: 160px;
+      }
+
+      .yes {
+        background: linear-gradient(135deg, #00c853, #00a152);
+
+        box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35);
+      }
+
+      .no {
+        background: linear-gradient(135deg, #ff5252, #d50000);
+
+        box-shadow: 0 8px 25px rgba(255, 82, 82, 0.3);
+      }
+
+      button:hover {
+        transform: translateY(-5px) scale(1.04);
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      .response {
+        display: none;
+
+        margin-top: 25px;
+
+        padding: 25px 20px;
+
+        border-radius: 20px;
+
+        font-size: 20px;
+
+        line-height: 1.6;
+
+        animation: appear 0.6s ease;
+      }
+
+      .response.show {
+        display: block;
+      }
+
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: scale(0.8) translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .response.yes-response {
+        background: rgba(0, 200, 83, 0.15);
+
+        border: 1px solid rgba(0, 200, 83, 0.4);
+      }
+
+      .response.no-response {
+        background: rgba(255, 82, 82, 0.15);
+
+        border: 1px solid rgba(255, 82, 82, 0.4);
+      }
+
+      .response-title {
+        font-size: 28px;
+
+        font-weight: 900;
+
+        margin-bottom: 10px;
+      }
+
+      .footer {
+        margin-top: 25px;
+
+        font-size: 14px;
+
+        color: #bbbbbb;
+      }
+
+      /* ESTRELLAS */
+      .star {
+        position: fixed;
+
+        color: white;
+
+        pointer-events: none;
+
+        animation: floatStar linear forwards;
+
+        z-index: 1;
+      }
+
+      @keyframes floatStar {
+        from {
+          transform: translateY(0) rotate(0deg);
+
+          opacity: 0;
+        }
+
+        15% {
+          opacity: 1;
+        }
+
+        to {
+          transform: translateY(-110vh) rotate(180deg);
+
+          opacity: 0;
+        }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 500px) {
+        body {
+          padding: 15px 10px;
+        }
+
+        .container {
+          padding: 28px 17px;
+          border-radius: 25px;
+        }
+
+        .emoji-top {
+          font-size: 45px;
+        }
+
+        h1 {
+          font-size: 43px;
+        }
+
+        .subtitle {
+          font-size: 18px;
+        }
+
+        .date-box {
+          padding: 16px 22px;
+        }
+
+        .date-box .day {
+          font-size: 25px;
+        }
+
+        .date-box .time {
+          font-size: 19px;
+        }
+
+        .message {
+          font-size: 18px;
+        }
+
+        .question {
+          font-size: 21px;
+        }
+
+        button {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .response {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="emoji-top">🔥🙌</div>
+
+      <h1>¡JÓVENES!</h1>
+
+      <div class="subtitle">Tenemos una cita que no te puedes perder 👀</div>
+
+      <!-- FECHA -->
+
+      <div class="date-box">
+        <div class="day">📅 ESTE SÁBADO</div>
+
+        <div class="time">⏰ 4:00 PM</div>
+      </div>
+
+      <!-- MENSAJE -->
+
+      <div class="message">
+        Dios tiene algo especial preparado para nosotros. 🙏🔥
+
+        <br /><br />
+
+        No importa cómo haya sido tu semana,
+        <span class="highlight"> ven tal como estás. </span>
+
+        <br /><br />
+
+        Será un tiempo para compartir, reír, adorar, aprender y acercarnos más a
+        Dios. ❤️
+
+        <br /><br />
+
+        <strong> Tu presencia hace falta. 🫵 </strong>
+      </div>
+
+      <!-- VERSÍCULO -->
+
+      <div class="verse">
+        “No dejes de congregarte con los demás, como algunos tienen por
+        costumbre, sino anímense unos a otros.”
+
+        <br />
+
+        <strong> Hebreos 10:25 </strong>
+      </div>
+
+      <!-- PREGUNTA -->
+
+      <div class="question">¿Te esperamos este sábado? 👀</div>
+
+      <!-- BOTONES -->
+
+      <div class="buttons">
+        <button class="yes" onclick="iWillGo()">🙋 ¡IRÉ!</button>
+
+        <button class="no" onclick="iWillNotGo()">😭 NO IRÉ</button>
+      </div>
+
+      <!-- RESPUESTA SI VA -->
+
+      <div id="yesResponse" class="response yes-response">
+        <div class="response-title">🔥 ¡ESO ES! 🔥</div>
+
+        <div>¡Nos vemos el sábado! 🙌</div>
+
+        <br />
+
+        Prepárate porque será un tiempo increíble en la presencia de Dios. ❤️
+
+        <br /><br />
+
+        <strong> ¡No llegues tarde! 😎 </strong>
+      </div>
+
+      <!-- RESPUESTA SI NO VA -->
+
+      <div id="noResponse" class="response no-response">
+        <div class="response-title">😭 ¡NOOOO, JOVEN!</div>
+
+        <div>¿Cómo que no vas? 👀</div>
+
+        <br />
+
+        Mira que Dios te está invitando y nosotros también. 😂🔥
+
+        <br /><br />
+
+        <strong> ¡Todavía estás a tiempo de cambiar de opinión! 🙏 </strong>
+
+        <br /><br />
+
+        No te pierdas este momento. Puede que precisamente este sábado sea el
+        día que necesitas. ❤️
+
+        <br /><br />
+
+        <button class="yes" onclick="changeMind()">
+          😎 ¡CAMBIÉ DE OPINIÓN!
+        </button>
+      </div>
+
+      <div class="footer">
+        ✨ Servicio de Jóvenes ✨
+        <br />
+        ¡Te esperamos! 🙌🔥
+      </div>
+    </div>
+
+    <script>
+      /* ================================
+           BOTÓN "IRÉ"
+        ================================= */
+
+      function iWillGo() {
+        document.getElementById("noResponse").classList.remove("show");
+
+        document.getElementById("yesResponse").classList.add("show");
+
+        createStars(35);
+
+        setTimeout(() => {
+          document.getElementById("yesResponse").scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 200);
+      }
+
+      /* ================================
+           BOTÓN "NO IRÉ"
+        ================================= */
+
+      function iWillNotGo() {
+        document.getElementById("yesResponse").classList.remove("show");
+
+        document.getElementById("noResponse").classList.add("show");
+
+        createStars(10);
+
+        setTimeout(() => {
+          document.getElementById("noResponse").scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 200);
+      }
+
+      /* ================================
+           CAMBIÓ DE OPINIÓN
+        ================================= */
+
+      function changeMind() {
+        document.getElementById("noResponse").classList.remove("show");
+
+        document.getElementById("yesResponse").classList.add("show");
+
+        createStars(45);
+
+        setTimeout(() => {
+          document.getElementById("yesResponse").scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 200);
+      }
+
+      /* ================================
+           ESTRELLAS FLOTANTES
+        ================================= */
+
+      function createStars(amount) {
+        for (let i = 0; i < amount; i++) {
+          setTimeout(() => {
+            const star = document.createElement("div");
+
+            star.className = "star";
+
+            const symbols = ["✨", "⭐", "💫", "🔥", "❤️"];
+
+            star.innerHTML =
+              symbols[Math.floor(Math.random() * symbols.length)];
+
+            star.style.left = Math.random() * 100 + "vw";
+
+            star.style.bottom = "-30px";
+
+            star.style.fontSize = 15 + Math.random() * 25 + "px";
+
+            star.style.animationDuration = 4 + Math.random() * 5 + "s";
+
+            document.body.appendChild(star);
+
+            setTimeout(() => {
+              star.remove();
+            }, 10000);
+          }, i * 70);
+        }
+      }
+
+      /* ================================
+           ANIMACIÓN AUTOMÁTICA
+        ================================= */
+
+      setInterval(() => {
+        createStars(1);
+      }, 1500);
+    </script>
+  </body>
+</html>
