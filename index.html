@@ -8,7 +8,7 @@
     <title>Jóvenes de Vanguardia 🔥</title>
 
     <!-- =========================================
-       VISTA PREVIA AL COMPARTIR EL ENLACE
+       VISTA PREVIA AL COMPARTIR
        ========================================= -->
 
     <meta property="og:title" content="Jóvenes de Vanguardia 🔥" />
@@ -45,9 +45,9 @@
     />
 
     <style>
-      /* ================================
+      /* =========================================
        CONFIGURACIÓN GENERAL
-       ================================ */
+       ========================================= */
 
       * {
         margin: 0;
@@ -69,46 +69,182 @@
         background:
           radial-gradient(
             circle at 15% 15%,
-            rgba(255, 210, 0, 0.13),
+            rgba(255, 210, 0, 0.16),
             transparent 25%
           ),
           radial-gradient(
             circle at 85% 80%,
-            rgba(255, 170, 0, 0.1),
+            rgba(255, 170, 0, 0.12),
             transparent 28%
           ),
           linear-gradient(145deg, #050b16, #101b30, #070d18);
 
-        display: flex;
-        justify-content: center;
-
-        padding: 20px 12px 40px;
-
         overflow-x: hidden;
       }
 
-      /* ================================
-       ESTRELLAS DE FONDO
-       ================================ */
+      /* =========================================
+       PANTALLA DE BIENVENIDA
+       ========================================= */
 
-      body::before {
-        content: "✦     ✧       ✦       ✧     ✦     ✧       ✦";
-
+      #intro {
         position: fixed;
 
-        top: 0;
-        left: 0;
+        inset: 0;
 
+        z-index: 9999;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 25px;
+
+        background: radial-gradient(circle at center, #17253d, #050914 75%);
+
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s ease;
+      }
+
+      #intro.ocultar {
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+      }
+
+      .intro-content {
         width: 100%;
-        height: 100%;
 
-        color: rgba(255, 255, 255, 0.3);
+        max-width: 500px;
 
-        font-size: 22px;
+        animation: entradaIntro 1s ease;
+      }
 
-        line-height: 100px;
+      @keyframes entradaIntro {
+        from {
+          opacity: 0;
 
-        letter-spacing: 18px;
+          transform: translateY(30px) scale(0.9);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .intro-logo {
+        width: 180px;
+
+        max-width: 70vw;
+
+        height: 180px;
+
+        object-fit: contain;
+
+        border-radius: 25px;
+
+        margin-bottom: 25px;
+
+        filter: drop-shadow(0 0 25px rgba(255, 208, 0, 0.35));
+
+        animation: brilloLogo 2s infinite alternate;
+      }
+
+      @keyframes brilloLogo {
+        from {
+          filter: drop-shadow(0 0 10px rgba(255, 208, 0, 0.15));
+        }
+
+        to {
+          filter: drop-shadow(0 0 35px rgba(255, 208, 0, 0.65));
+        }
+      }
+
+      .intro-small {
+        color: #ffd000;
+
+        font-weight: 900;
+
+        letter-spacing: 2px;
+
+        font-size: 14px;
+
+        margin-bottom: 12px;
+      }
+
+      .intro-title {
+        font-size: clamp(38px, 10vw, 70px);
+
+        line-height: 0.95;
+
+        font-weight: 900;
+
+        margin-bottom: 20px;
+      }
+
+      .intro-title span {
+        color: #ffd000;
+      }
+
+      .intro-text {
+        font-size: 20px;
+
+        color: #dfe5ee;
+
+        line-height: 1.5;
+
+        margin-bottom: 28px;
+      }
+
+      .btn-entrar {
+        border: none;
+
+        padding: 18px 30px;
+
+        border-radius: 50px;
+
+        background: linear-gradient(135deg, #ffe000, #ff9700);
+
+        color: #111;
+
+        font-size: 18px;
+
+        font-weight: 900;
+
+        cursor: pointer;
+
+        box-shadow: 0 10px 35px rgba(255, 174, 0, 0.35);
+
+        animation: pulsar 1.7s infinite;
+      }
+
+      @keyframes pulsar {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      /* =========================================
+       ESTRELLAS
+       ========================================= */
+
+      .estrellas {
+        position: fixed;
+
+        inset: 0;
 
         pointer-events: none;
 
@@ -117,34 +253,127 @@
         z-index: 0;
       }
 
-      /* ================================
-       TARJETA PRINCIPAL
-       ================================ */
+      .estrella {
+        position: absolute;
 
-      .card {
-        width: 100%;
-        max-width: 620px;
+        color: rgba(255, 255, 255, 0.6);
+
+        animation: flotar linear infinite;
+      }
+
+      @keyframes flotar {
+        from {
+          transform: translateY(110vh) rotate(0deg);
+
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        90% {
+          opacity: 1;
+        }
+
+        to {
+          transform: translateY(-10vh) rotate(360deg);
+
+          opacity: 0;
+        }
+      }
+
+      /* =========================================
+       CONTENEDOR
+       ========================================= */
+
+      .pagina {
+        min-height: 100vh;
+
+        display: flex;
+
+        justify-content: center;
+
+        padding: 25px 12px 50px;
 
         position: relative;
 
         z-index: 1;
+      }
 
-        background: rgba(10, 18, 32, 0.96);
+      /* =========================================
+       TARJETA
+       ========================================= */
+
+      .card {
+        width: 100%;
+
+        max-width: 650px;
+
+        height: fit-content;
+
+        position: relative;
+
+        background: rgba(10, 18, 32, 0.95);
 
         border: 2px solid rgba(255, 208, 0, 0.55);
 
-        border-radius: 28px;
+        border-radius: 30px;
 
-        padding: 28px 22px 32px;
+        padding: 30px 22px 35px;
 
         text-align: center;
 
-        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
+
+        overflow: hidden;
+
+        animation: aparecerTarjeta 0.9s ease;
       }
 
-      /* ================================
-       LOGO DE LA IGLESIA
-       ================================ */
+      @keyframes aparecerTarjeta {
+        from {
+          opacity: 0;
+
+          transform: translateY(35px) scale(0.96);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* =========================================
+       BRILLO SUPERIOR
+       ========================================= */
+
+      .card::before {
+        content: "";
+
+        position: absolute;
+
+        top: -120px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 300px;
+
+        height: 220px;
+
+        background: rgba(255, 208, 0, 0.12);
+
+        filter: blur(60px);
+
+        pointer-events: none;
+      }
+
+      /* =========================================
+       LOGO
+       ========================================= */
 
       .logo {
         width: 170px;
@@ -157,23 +386,39 @@
 
         display: block;
 
-        margin: 0 auto 18px;
+        margin: 0 auto 20px;
 
-        border-radius: 18px;
+        border-radius: 20px;
 
-        filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.35));
+        filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+
+        animation: logoEntrada 1s ease;
       }
 
-      /* ================================
-       ETIQUETA
-       ================================ */
+      @keyframes logoEntrada {
+        from {
+          opacity: 0;
+
+          transform: scale(0.7) rotate(-5deg);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: scale(1) rotate(0);
+        }
+      }
+
+      /* =========================================
+       BADGE
+       ========================================= */
 
       .badge {
         display: inline-block;
 
         padding: 10px 18px;
 
-        border-radius: 40px;
+        border-radius: 50px;
 
         background: linear-gradient(135deg, #ffe000, #ffad00);
 
@@ -186,11 +431,13 @@
         box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
 
         margin-bottom: 20px;
+
+        animation: aparecer 1s ease 0.2s both;
       }
 
-      /* ================================
+      /* =========================================
        TITULO
-       ================================ */
+       ========================================= */
 
       h1 {
         font-size: clamp(42px, 11vw, 76px);
@@ -201,16 +448,20 @@
 
         letter-spacing: -2px;
 
-        margin-bottom: 16px;
+        margin-bottom: 18px;
+
+        animation: aparecer 1s ease 0.3s both;
       }
 
       h1 .amarillo {
         color: #ffd000;
+
+        text-shadow: 0 0 25px rgba(255, 208, 0, 0.2);
       }
 
-      /* ================================
+      /* =========================================
        SUBTITULO
-       ================================ */
+       ========================================= */
 
       .subtitle {
         font-size: clamp(20px, 5vw, 28px);
@@ -220,11 +471,13 @@
         font-weight: 700;
 
         margin-bottom: 22px;
+
+        animation: aparecer 1s ease 0.4s both;
       }
 
-      /* ================================
-       VERSÍCULO
-       ================================ */
+      /* =========================================
+       VERSICULO
+       ========================================= */
 
       .verse {
         background: rgba(255, 255, 255, 0.07);
@@ -236,6 +489,18 @@
         padding: 18px;
 
         margin-bottom: 24px;
+
+        animation: aparecer 1s ease 0.5s both;
+
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease;
+      }
+
+      .verse:hover {
+        transform: translateY(-3px);
+
+        background: rgba(255, 255, 255, 0.1);
       }
 
       .verse strong {
@@ -258,9 +523,9 @@
         font-size: 15px;
       }
 
-      /* ================================
+      /* =========================================
        MENSAJE
-       ================================ */
+       ========================================= */
 
       .message {
         font-size: 18px;
@@ -270,15 +535,17 @@
         color: #edf1f7;
 
         margin-bottom: 24px;
+
+        animation: aparecer 1s ease 0.6s both;
       }
 
       .message strong {
         color: #ffd000;
       }
 
-      /* ================================
-       INFORMACIÓN
-       ================================ */
+      /* =========================================
+       INFORMACION
+       ========================================= */
 
       .info {
         display: grid;
@@ -293,20 +560,105 @@
 
         border-radius: 16px;
 
-        padding: 16px;
+        padding: 17px;
 
         font-size: 19px;
 
         font-weight: 800;
+
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease,
+          box-shadow 0.25s ease;
+
+        animation: aparecer 0.7s ease both;
+      }
+
+      .info-box:nth-child(1) {
+        animation-delay: 0.7s;
+      }
+
+      .info-box:nth-child(2) {
+        animation-delay: 0.8s;
+      }
+
+      .info-box:nth-child(3) {
+        animation-delay: 0.9s;
+      }
+
+      .info-box:hover {
+        transform: translateY(-5px) scale(1.01);
+
+        background: rgba(255, 208, 0, 0.1);
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       }
 
       .info-box .yellow {
         color: #ffd000;
       }
 
-      /* ================================
+      /* =========================================
+       CUENTA REGRESIVA
+       ========================================= */
+
+      .countdown-title {
+        font-size: 15px;
+
+        font-weight: 900;
+
+        color: #aeb8c8;
+
+        margin-bottom: 12px;
+
+        letter-spacing: 1px;
+      }
+
+      .countdown {
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 8px;
+
+        margin-bottom: 28px;
+      }
+
+      .time-box {
+        background: rgba(255, 208, 0, 0.08);
+
+        border: 1px solid rgba(255, 208, 0, 0.2);
+
+        border-radius: 14px;
+
+        padding: 13px 5px;
+      }
+
+      .time-number {
+        display: block;
+
+        font-size: clamp(25px, 7vw, 38px);
+
+        font-weight: 900;
+
+        color: #ffd000;
+      }
+
+      .time-label {
+        display: block;
+
+        font-size: 10px;
+
+        color: #b9c1ce;
+
+        margin-top: 3px;
+
+        font-weight: 700;
+      }
+
+      /* =========================================
        PREGUNTA
-       ================================ */
+       ========================================= */
 
       .question {
         font-size: 21px;
@@ -316,9 +668,9 @@
         margin-bottom: 18px;
       }
 
-      /* ================================
+      /* =========================================
        BOTONES
-       ================================ */
+       ========================================= */
 
       .buttons {
         display: grid;
@@ -349,7 +701,7 @@
       }
 
       button:active {
-        transform: scale(0.96);
+        transform: scale(0.95);
       }
 
       .btn-si {
@@ -357,7 +709,20 @@
 
         color: #111;
 
-        box-shadow: 0 8px 22px rgba(255, 174, 0, 0.25);
+        box-shadow: 0 8px 22px rgba(255, 174, 0, 0.3);
+
+        animation: botonPulsar 2s infinite;
+      }
+
+      @keyframes botonPulsar {
+        0%,
+        100% {
+          box-shadow: 0 8px 22px rgba(255, 174, 0, 0.25);
+        }
+
+        50% {
+          box-shadow: 0 8px 35px rgba(255, 174, 0, 0.55);
+        }
       }
 
       .btn-no {
@@ -366,16 +731,24 @@
         color: white;
       }
 
-      /* ================================
+      .btn-si:hover {
+        transform: translateY(-3px) scale(1.02);
+      }
+
+      .btn-no:hover {
+        transform: translateY(-3px);
+      }
+
+      /* =========================================
        RESPUESTA
-       ================================ */
+       ========================================= */
 
       #respuesta {
         display: none;
 
         margin-top: 20px;
 
-        padding: 22px;
+        padding: 24px;
 
         border-radius: 18px;
 
@@ -385,38 +758,38 @@
 
         font-size: 17px;
 
-        animation: aparecer 0.35s ease;
+        animation: aparecerRespuesta 0.45s ease;
       }
 
-      @keyframes aparecer {
+      @keyframes aparecerRespuesta {
         from {
           opacity: 0;
 
-          transform: translateY(10px);
+          transform: translateY(20px) scale(0.96);
         }
 
         to {
           opacity: 1;
 
-          transform: translateY(0);
+          transform: translateY(0) scale(1);
         }
       }
 
       #respuesta h2 {
         color: #ffd000;
 
-        font-size: 25px;
+        font-size: 27px;
 
-        margin-bottom: 10px;
+        margin-bottom: 12px;
       }
 
       #respuesta p {
         color: #edf1f7;
       }
 
-      /* ================================
-       BOTÓN VOLVER
-       ================================ */
+      /* =========================================
+       BOTON VOLVER
+       ========================================= */
 
       .volver {
         display: none;
@@ -434,9 +807,9 @@
         font-size: 14px;
       }
 
-      /* ================================
-       PIE
-       ================================ */
+      /* =========================================
+       FOOTER
+       ========================================= */
 
       .footer {
         margin-top: 28px;
@@ -448,17 +821,67 @@
         line-height: 1.5;
       }
 
-      /* ================================
+      /* =========================================
+       CONFETI
+       ========================================= */
+
+      .confeti {
+        position: fixed;
+
+        top: -20px;
+
+        z-index: 9998;
+
+        pointer-events: none;
+
+        font-size: 25px;
+
+        animation: caer 2.8s linear forwards;
+      }
+
+      @keyframes caer {
+        from {
+          transform: translateY(0) rotate(0deg);
+
+          opacity: 1;
+        }
+
+        to {
+          transform: translateY(110vh) rotate(720deg);
+
+          opacity: 0;
+        }
+      }
+
+      /* =========================================
+       ANIMACIÓN GENERAL
+       ========================================= */
+
+      @keyframes aparecer {
+        from {
+          opacity: 0;
+
+          transform: translateY(15px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================
        CELULARES
-       ================================ */
+       ========================================= */
 
       @media (max-width: 480px) {
-        body {
-          padding: 10px 7px 25px;
+        .pagina {
+          padding: 10px 7px 30px;
         }
 
         .card {
-          border-radius: 22px;
+          border-radius: 23px;
 
           padding: 24px 15px 28px;
         }
@@ -480,145 +903,365 @@
         .info-box {
           font-size: 17px;
         }
+
+        .countdown {
+          gap: 5px;
+        }
+
+        .time-box {
+          padding: 10px 3px;
+        }
+
+        .time-number {
+          font-size: 25px;
+        }
+
+        .time-label {
+          font-size: 9px;
+        }
       }
     </style>
   </head>
 
   <body>
-    <main class="card">
-      <!-- =========================================
-         LOGO DE LA IGLESIA
-         
-         Archivo:
-         logo.png
-         
-         Debe estar junto a index.html
-         ========================================= -->
+    <!-- =========================================
+       PANTALLA INICIAL
+       ========================================= -->
 
-      <img src="logo.png" alt="Logo de la iglesia" class="logo" />
+    <section id="intro">
+      <div class="intro-content">
+        <img src="logo.png" alt="Logo de la iglesia" class="intro-logo" />
 
-      <!-- =========================================
-         NOMBRE DEL MINISTERIO
-         ========================================= -->
+        <div class="intro-small">🔥 MINISTERIO JUVENIL</div>
 
-      <div class="badge">🔥 MINISTERIO JÓVENES DE VANGUARDIA</div>
+        <h1 class="intro-title">
+          JÓVENES
+          <br />
+          <span>DE VANGUARDIA</span>
+        </h1>
 
-      <!-- =========================================
-         TITULO
-         ========================================= -->
+        <p class="intro-text">
+          Tenemos una invitación especial para ti.
+          <br />
+          ¿Estás listo? 🙌🔥
+        </p>
 
-      <h1>
-        JÓVENES<br />
-
-        <span class="amarillo"> DE VANGUARDIA </span>
-      </h1>
-
-      <!-- =========================================
-         INVITACIÓN
-         ========================================= -->
-
-      <p class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</p>
-
-      <!-- =========================================
-         VERSÍCULO
-         ========================================= -->
-
-      <div class="verse">
-        <strong> “Nadie tenga en poco tu juventud...” </strong>
-
-        <span> 1 Timoteo 4:12 </span>
-      </div>
-
-      <!-- =========================================
-         MENSAJE
-         ========================================= -->
-
-      <p class="message">
-        Dios tiene algo especial preparado para ti. No importa cómo haya sido tu
-        semana, ven con un corazón dispuesto, porque juntos vamos a buscar a
-        Dios, compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
-
-        <br />
-        <br />
-
-        <strong> ¡No te quedes en casa! Tu presencia hace falta. 🔥 </strong>
-      </p>
-
-      <!-- =========================================
-         INFORMACIÓN DEL SERVICIO
-         ========================================= -->
-
-      <section class="info">
-        <div class="info-box">
-          📅
-          <span class="yellow"> ESTE SÁBADO </span>
-        </div>
-
-        <div class="info-box">
-          🕓
-          <span class="yellow"> 4:00 PM </span>
-        </div>
-
-        <div class="info-box">
-          🔥
-          <span class="yellow"> SERVICIO DE JÓVENES </span>
-        </div>
-      </section>
-
-      <!-- =========================================
-         PREGUNTA
-         ========================================= -->
-
-      <p class="question">¿Vas a estar con nosotros? 🙌</p>
-
-      <p class="message">Queremos saber si contamos contigo.</p>
-
-      <!-- =========================================
-         BOTONES
-         ========================================= -->
-
-      <div class="buttons">
-        <button class="btn-si" onclick="mostrarRespuesta('si')">
-          🙌 ¡IRÉ!
-        </button>
-
-        <button class="btn-no" onclick="mostrarRespuesta('no')">
-          😔 NO IRÉ
+        <button class="btn-entrar" onclick="abrirInvitacion()">
+          🔥 VER INVITACIÓN
         </button>
       </div>
+    </section>
 
-      <!-- =========================================
-         RESPUESTA
-         ========================================= -->
+    <!-- =========================================
+       ESTRELLAS
+       ========================================= -->
 
-      <div id="respuesta"></div>
+    <div class="estrellas" id="estrellas"></div>
 
-      <!-- =========================================
-         BOTÓN VOLVER
-         ========================================= -->
+    <!-- =========================================
+       PÁGINA PRINCIPAL
+       ========================================= -->
 
-      <button id="volver" class="volver" onclick="volverInicio()">
-        ← Volver
-      </button>
+    <div class="pagina">
+      <main class="card">
+        <!-- =====================================
+           LOGO
+           ===================================== -->
 
-      <!-- =========================================
-         PIE
-         ========================================= -->
+        <img src="logo.png" alt="Logo de la iglesia" class="logo" />
 
-      <div class="footer">
-        Jóvenes de Vanguardia 🔥
+        <!-- =====================================
+           BADGE
+           ===================================== -->
 
-        <br />
+        <div class="badge">🔥 MINISTERIO JÓVENES DE VANGUARDIA</div>
 
-        Un lugar para crecer, servir y buscar a Dios.
-      </div>
-    </main>
+        <!-- =====================================
+           TITULO
+           ===================================== -->
+
+        <h1>
+          JÓVENES
+
+          <br />
+
+          <span class="amarillo"> DE VANGUARDIA </span>
+        </h1>
+
+        <!-- =====================================
+           SUBTITULO
+           ===================================== -->
+
+        <p class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</p>
+
+        <!-- =====================================
+           VERSICULO
+           ===================================== -->
+
+        <div class="verse">
+          <strong> “Nadie tenga en poco tu juventud...” </strong>
+
+          <span> 1 Timoteo 4:12 </span>
+        </div>
+
+        <!-- =====================================
+           MENSAJE
+           ===================================== -->
+
+        <p class="message">
+          Dios tiene algo especial preparado para ti. No importa cómo haya sido
+          tu semana, ven con un corazón dispuesto, porque juntos vamos a buscar
+          a Dios, compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
+
+          <br />
+          <br />
+
+          <strong> ¡No te quedes en casa! Tu presencia hace falta. 🔥 </strong>
+        </p>
+
+        <!-- =====================================
+           INFORMACIÓN
+           ===================================== -->
+
+        <section class="info">
+          <div class="info-box">
+            📅
+
+            <span class="yellow"> ESTE SÁBADO </span>
+          </div>
+
+          <div class="info-box">
+            🕓
+
+            <span class="yellow"> 4:00 PM </span>
+          </div>
+
+          <div class="info-box">
+            🔥
+
+            <span class="yellow"> SERVICIO DE JÓVENES </span>
+          </div>
+        </section>
+
+        <!-- =====================================
+           CUENTA REGRESIVA
+           ===================================== -->
+
+        <div class="countdown-title">⏳ FALTAN PARA NUESTRO SERVICIO</div>
+
+        <div class="countdown">
+          <div class="time-box">
+            <span class="time-number" id="dias"> 00 </span>
+
+            <span class="time-label"> DÍAS </span>
+          </div>
+
+          <div class="time-box">
+            <span class="time-number" id="horas"> 00 </span>
+
+            <span class="time-label"> HORAS </span>
+          </div>
+
+          <div class="time-box">
+            <span class="time-number" id="minutos"> 00 </span>
+
+            <span class="time-label"> MIN </span>
+          </div>
+
+          <div class="time-box">
+            <span class="time-number" id="segundos"> 00 </span>
+
+            <span class="time-label"> SEG </span>
+          </div>
+        </div>
+
+        <!-- =====================================
+           PREGUNTA
+           ===================================== -->
+
+        <p class="question">¿Vas a estar con nosotros? 🙌</p>
+
+        <p class="message">Queremos saber si contamos contigo.</p>
+
+        <!-- =====================================
+           BOTONES
+           ===================================== -->
+
+        <div class="buttons">
+          <button class="btn-si" onclick="mostrarRespuesta('si')">
+            🙌 ¡IRÉ!
+          </button>
+
+          <button class="btn-no" onclick="mostrarRespuesta('no')">
+            😔 NO IRÉ
+          </button>
+        </div>
+
+        <!-- =====================================
+           RESPUESTA
+           ===================================== -->
+
+        <div id="respuesta"></div>
+
+        <!-- =====================================
+           VOLVER
+           ===================================== -->
+
+        <button id="volver" class="volver" onclick="volverInicio()">
+          ← Volver
+        </button>
+
+        <!-- =====================================
+           FOOTER
+           ===================================== -->
+
+        <div class="footer">
+          Jóvenes de Vanguardia 🔥
+
+          <br />
+
+          Un lugar para crecer, servir y buscar a Dios.
+        </div>
+      </main>
+    </div>
 
     <!-- =========================================
        JAVASCRIPT
        ========================================= -->
 
     <script>
+      /* =========================================
+       ABRIR INVITACIÓN
+       ========================================= */
+
+      function abrirInvitacion() {
+        const intro = document.getElementById("intro");
+
+        intro.classList.add("ocultar");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      /* =========================================
+       CREAR ESTRELLAS
+       ========================================= */
+
+      function crearEstrellas() {
+        const contenedor = document.getElementById("estrellas");
+
+        const simbolos = ["✦", "✧", "•", "✦", "✨"];
+
+        for (let i = 0; i < 35; i++) {
+          const estrella = document.createElement("div");
+
+          estrella.className = "estrella";
+
+          estrella.textContent =
+            simbolos[Math.floor(Math.random() * simbolos.length)];
+
+          estrella.style.left = Math.random() * 100 + "%";
+
+          estrella.style.fontSize = Math.random() * 15 + 8 + "px";
+
+          estrella.style.animationDuration = Math.random() * 10 + 8 + "s";
+
+          estrella.style.animationDelay = Math.random() * 10 + "s";
+
+          contenedor.appendChild(estrella);
+        }
+      }
+
+      crearEstrellas();
+
+      /* =========================================
+       CUENTA REGRESIVA
+       ========================================= */
+
+      function actualizarCuentaRegresiva() {
+        const ahora = new Date();
+
+        let objetivo = new Date();
+
+        /*
+       Siguiente sábado a las 4:00 PM
+      */
+
+        let diasHastaSabado = (6 - ahora.getDay() + 7) % 7;
+
+        /*
+       Si hoy es sábado y ya pasó
+       la hora del servicio,
+       buscamos el próximo sábado.
+      */
+
+        if (
+          diasHastaSabado === 0 &&
+          (ahora.getHours() > 16 ||
+            (ahora.getHours() === 16 && ahora.getMinutes() > 0))
+        ) {
+          diasHastaSabado = 7;
+        }
+
+        objetivo.setDate(ahora.getDate() + diasHastaSabado);
+
+        objetivo.setHours(16, 0, 0, 0);
+
+        const diferencia = objetivo - ahora;
+
+        if (diferencia <= 0) {
+          document.getElementById("dias").textContent = "00";
+
+          document.getElementById("horas").textContent = "00";
+
+          document.getElementById("minutos").textContent = "00";
+
+          document.getElementById("segundos").textContent = "00";
+
+          return;
+        }
+
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+        const horas = Math.floor(
+          (diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+
+        const minutos = Math.floor(
+          (diferencia % (1000 * 60 * 60)) / (1000 * 60),
+        );
+
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        document.getElementById("dias").textContent = String(dias).padStart(
+          2,
+          "0",
+        );
+
+        document.getElementById("horas").textContent = String(horas).padStart(
+          2,
+          "0",
+        );
+
+        document.getElementById("minutos").textContent = String(
+          minutos,
+        ).padStart(2, "0");
+
+        document.getElementById("segundos").textContent = String(
+          segundos,
+        ).padStart(2, "0");
+      }
+
+      actualizarCuentaRegresiva();
+
+      setInterval(actualizarCuentaRegresiva, 1000);
+
+      /* =========================================
+       RESPUESTAS
+       ========================================= */
+
       function mostrarRespuesta(opcion) {
         const respuesta = document.getElementById("respuesta");
 
@@ -633,7 +1276,8 @@
 
           <p>
 
-            ¡Nos alegra muchísimo saber que vienes!
+            ¡Nos alegra muchísimo saber
+            que vienes!
 
             <br>
             <br>
@@ -652,6 +1296,8 @@
           </p>
 
         `;
+
+          crearConfeti();
         } else {
           respuesta.innerHTML = `
 
@@ -684,8 +1330,8 @@
             <br>
 
             <strong>
-              ¡Anímate! Te estamos esperando.
-              🔥🙌
+              ¡Anímate!
+              Te estamos esperando. 🔥🙌
             </strong>
 
           </p>
@@ -702,6 +1348,41 @@
           block: "center",
         });
       }
+
+      /* =========================================
+       CONFETI
+       ========================================= */
+
+      function crearConfeti() {
+        const emojis = ["🔥", "🙌", "🎉", "✨", "❤️", "💛", "⭐"];
+
+        for (let i = 0; i < 35; i++) {
+          const confeti = document.createElement("div");
+
+          confeti.className = "confeti";
+
+          confeti.textContent =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+          confeti.style.left = Math.random() * 100 + "%";
+
+          confeti.style.fontSize = Math.random() * 15 + 15 + "px";
+
+          confeti.style.animationDuration = Math.random() * 1.5 + 2 + "s";
+
+          confeti.style.animationDelay = Math.random() * 0.8 + "s";
+
+          document.body.appendChild(confeti);
+
+          setTimeout(() => {
+            confeti.remove();
+          }, 4000);
+        }
+      }
+
+      /* =========================================
+       VOLVER
+       ========================================= */
 
       function volverInicio() {
         const respuesta = document.getElementById("respuesta");
