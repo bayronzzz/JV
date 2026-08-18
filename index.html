@@ -2,7 +2,6 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Jóvenes de Vanguardia 🔥</title>
@@ -46,7 +45,7 @@
 
     <style>
       /* =========================================
-       CONFIGURACIÓN GENERAL
+       GENERAL
        ========================================= */
 
       * {
@@ -68,16 +67,22 @@
 
         background:
           radial-gradient(
-            circle at 20% 10%,
-            rgba(255, 210, 0, 0.18),
+            circle at 15% 15%,
+            rgba(255, 210, 0, 0.16),
             transparent 25%
           ),
           radial-gradient(
-            circle at 80% 80%,
+            circle at 85% 80%,
             rgba(255, 170, 0, 0.12),
-            transparent 30%
+            transparent 28%
           ),
           linear-gradient(145deg, #050b16, #101b30, #070d18);
+
+        display: flex;
+
+        justify-content: center;
+
+        padding: 20px 12px 40px;
 
         overflow-x: hidden;
       }
@@ -87,13 +92,17 @@
        ========================================= */
 
       body::before {
-        content: "✦     ✧       ✦       ✧       ✦       ✧";
+        content: "✦     ✧       ✦       ✧     ✦     ✧       ✦";
 
         position: fixed;
 
-        inset: 0;
+        top: 0;
+        left: 0;
 
-        color: rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 100%;
+
+        color: rgba(255, 255, 255, 0.3);
 
         font-size: 22px;
 
@@ -106,18 +115,40 @@
         overflow: hidden;
 
         z-index: 0;
+
+        animation: estrellas 8s linear infinite;
+      }
+
+      @keyframes estrellas {
+        0% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(30px);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
       }
 
       /* =========================================
-       PANTALLA DE BIENVENIDA
+       PANTALLA DE NOMBRE
        ========================================= */
 
-      #bienvenida {
+      #pantallaNombre {
         position: fixed;
 
         inset: 0;
 
-        z-index: 9999;
+        background:
+          radial-gradient(
+            circle at center,
+            rgba(255, 208, 0, 0.15),
+            transparent 35%
+          ),
+          linear-gradient(145deg, #050b16, #101b30, #050a14);
 
         display: flex;
 
@@ -127,20 +158,14 @@
 
         padding: 20px;
 
-        background:
-          radial-gradient(
-            circle at center,
-            rgba(255, 208, 0, 0.12),
-            transparent 35%
-          ),
-          linear-gradient(145deg, #030711, #0b1528, #030711);
+        z-index: 9999;
 
         transition:
-          opacity 0.8s ease,
-          visibility 0.8s ease;
+          opacity 0.6s ease,
+          visibility 0.6s ease;
       }
 
-      #bienvenida.ocultar {
+      #pantallaNombre.oculta {
         opacity: 0;
 
         visibility: hidden;
@@ -148,82 +173,91 @@
         pointer-events: none;
       }
 
-      .welcome-box {
+      .nombre-box {
         width: 100%;
 
-        max-width: 500px;
+        max-width: 470px;
 
         text-align: center;
 
-        padding: 35px 25px 40px;
-
-        background: rgba(10, 18, 32, 0.95);
+        background: rgba(10, 18, 32, 0.97);
 
         border: 2px solid rgba(255, 208, 0, 0.55);
 
-        border-radius: 30px;
+        border-radius: 28px;
 
-        box-shadow: 0 25px 90px rgba(0, 0, 0, 0.65);
+        padding: 35px 25px;
 
-        animation: aparecer 0.8s ease;
+        box-shadow: 0 25px 90px rgba(0, 0, 0, 0.7);
+
+        animation: entradaNombre 0.8s ease;
       }
 
-      .welcome-fire {
-        font-size: 55px;
-
-        margin-bottom: 10px;
-
-        animation: fuego 1.2s infinite alternate;
-      }
-
-      @keyframes fuego {
+      @keyframes entradaNombre {
         from {
-          transform: scale(1);
+          opacity: 0;
+
+          transform: translateY(40px) scale(0.9);
         }
 
         to {
-          transform: scale(1.12);
+          opacity: 1;
+
+          transform: translateY(0) scale(1);
         }
       }
 
-      .welcome-box h1 {
-        font-size: clamp(36px, 9vw, 58px);
+      .nombre-logo {
+        width: 130px;
 
-        line-height: 1;
+        height: 130px;
+
+        object-fit: contain;
+
+        margin-bottom: 20px;
+
+        animation: flotar 3s ease-in-out infinite;
+      }
+
+      @keyframes flotar {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .nombre-box h2 {
+        font-size: clamp(30px, 8vw, 48px);
 
         font-weight: 900;
 
-        margin-bottom: 15px;
+        line-height: 1;
+
+        margin-bottom: 12px;
       }
 
-      .welcome-box h1 span {
+      .nombre-box h2 span {
         color: #ffd000;
       }
 
-      .welcome-text {
-        color: #dce3ef;
-
-        font-size: 18px;
-
-        line-height: 1.5;
-
-        margin-bottom: 25px;
-      }
-
-      .nombre-label {
-        display: block;
+      .nombre-box p {
+        color: #d9deea;
 
         font-size: 17px;
 
-        font-weight: 800;
+        line-height: 1.5;
 
-        margin-bottom: 10px;
+        margin-bottom: 24px;
       }
 
       #nombre {
         width: 100%;
 
-        padding: 17px 18px;
+        padding: 16px;
 
         border-radius: 15px;
 
@@ -233,15 +267,17 @@
 
         color: white;
 
+        outline: none;
+
         font-size: 18px;
 
         text-align: center;
 
-        outline: none;
+        margin-bottom: 14px;
+      }
 
-        transition:
-          border 0.2s,
-          box-shadow 0.2s;
+      #nombre::placeholder {
+        color: #aab2c2;
       }
 
       #nombre:focus {
@@ -250,88 +286,60 @@
         box-shadow: 0 0 20px rgba(255, 208, 0, 0.18);
       }
 
-      #nombre::placeholder {
-        color: #8993a5;
-      }
-
-      #entrar {
+      .btn-comenzar {
         width: 100%;
-
-        margin-top: 16px;
 
         padding: 17px;
 
         border: none;
 
-        border-radius: 16px;
+        border-radius: 15px;
 
         background: linear-gradient(135deg, #ffd000, #ff9d00);
 
         color: #111;
 
-        font-size: 19px;
+        font-size: 18px;
 
         font-weight: 900;
 
         cursor: pointer;
 
-        box-shadow: 0 10px 30px rgba(255, 174, 0, 0.28);
+        box-shadow: 0 10px 30px rgba(255, 174, 0, 0.3);
 
         transition:
-          transform 0.15s,
-          box-shadow 0.15s;
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
-      #entrar:hover {
-        transform: translateY(-2px);
+      .btn-comenzar:hover {
+        transform: translateY(-3px);
 
-        box-shadow: 0 14px 35px rgba(255, 174, 0, 0.38);
+        box-shadow: 0 14px 35px rgba(255, 174, 0, 0.45);
       }
 
-      #entrar:active {
-        transform: scale(0.97);
-      }
+      .error {
+        color: #ff7777 !important;
 
-      #errorNombre {
+        margin-top: 10px;
+
+        margin-bottom: 0 !important;
+
         display: none;
-
-        margin-top: 12px;
-
-        color: #ff8585;
-
-        font-size: 14px;
-
-        font-weight: bold;
       }
 
       /* =========================================
-       CONTENIDO PRINCIPAL
+       TARJETA
        ========================================= */
-
-      #contenido {
-        display: none;
-
-        position: relative;
-
-        z-index: 1;
-
-        min-height: 100vh;
-
-        justify-content: center;
-
-        padding: 25px 12px 45px;
-      }
-
-      #contenido.mostrar {
-        display: flex;
-
-        animation: aparecer 0.9s ease;
-      }
 
       .card {
         width: 100%;
 
         max-width: 620px;
+
+        position: relative;
+
+        z-index: 1;
 
         background: rgba(10, 18, 32, 0.96);
 
@@ -339,13 +347,27 @@
 
         border-radius: 28px;
 
-        padding: 30px 22px 35px;
+        padding: 28px 22px 32px;
 
         text-align: center;
 
         box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
 
-        position: relative;
+        animation: aparecerCard 0.8s ease;
+      }
+
+      @keyframes aparecerCard {
+        from {
+          opacity: 0;
+
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0);
+        }
       }
 
       /* =========================================
@@ -353,33 +375,29 @@
        ========================================= */
 
       .saludo {
-        margin-bottom: 20px;
-
-        padding: 15px;
-
-        border-radius: 16px;
-
-        background: rgba(255, 208, 0, 0.08);
-
-        border: 1px solid rgba(255, 208, 0, 0.2);
-
-        animation: deslizar 0.8s ease;
-      }
-
-      .saludo small {
-        display: block;
-
-        color: #aeb8c8;
-
-        font-size: 13px;
-
-        margin-bottom: 5px;
-      }
-
-      .saludo strong {
         color: #ffd000;
 
-        font-size: 25px;
+        font-size: 20px;
+
+        font-weight: 900;
+
+        margin-bottom: 15px;
+
+        animation: aparecerTexto 0.8s ease;
+      }
+
+      @keyframes aparecerTexto {
+        from {
+          opacity: 0;
+
+          transform: translateY(15px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0);
+        }
       }
 
       /* =========================================
@@ -397,24 +415,13 @@
 
         display: block;
 
-        margin: 0 auto 20px;
+        margin: 0 auto 18px;
 
         border-radius: 18px;
 
         filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.35));
 
         animation: flotar 3s ease-in-out infinite;
-      }
-
-      @keyframes flotar {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(-7px);
-        }
       }
 
       /* =========================================
@@ -439,13 +446,26 @@
         box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
 
         margin-bottom: 20px;
+
+        animation: pulso 2.5s infinite;
+      }
+
+      @keyframes pulso {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.04);
+        }
       }
 
       /* =========================================
        TITULO
        ========================================= */
 
-      h2.titulo {
+      h1 {
         font-size: clamp(42px, 11vw, 76px);
 
         line-height: 0.95;
@@ -454,10 +474,12 @@
 
         letter-spacing: -2px;
 
-        margin-bottom: 18px;
+        margin-bottom: 16px;
+
+        animation: aparecerTexto 1s ease;
       }
 
-      .amarillo {
+      h1 .amarillo {
         color: #ffd000;
       }
 
@@ -472,11 +494,11 @@
 
         font-weight: 700;
 
-        margin-bottom: 25px;
+        margin-bottom: 22px;
       }
 
       /* =========================================
-       VERSÍCULO
+       VERSICULO
        ========================================= */
 
       .verse {
@@ -488,9 +510,9 @@
 
         padding: 18px;
 
-        margin-bottom: 25px;
+        margin-bottom: 24px;
 
-        animation: deslizar 0.9s ease;
+        animation: aparecerTexto 1.2s ease;
       }
 
       .verse strong {
@@ -524,7 +546,7 @@
 
         color: #edf1f7;
 
-        margin-bottom: 25px;
+        margin-bottom: 24px;
       }
 
       .message strong {
@@ -532,7 +554,7 @@
       }
 
       /* =========================================
-       INFORMACIÓN
+       INFORMACION
        ========================================= */
 
       .info {
@@ -540,7 +562,7 @@
 
         gap: 12px;
 
-        margin: 22px 0 28px;
+        margin: 22px 0 26px;
       }
 
       .info-box {
@@ -548,24 +570,24 @@
 
         border-radius: 16px;
 
-        padding: 17px;
+        padding: 16px;
 
         font-size: 19px;
 
         font-weight: 800;
 
         transition:
-          transform 0.2s,
-          background 0.2s;
+          transform 0.2s ease,
+          background 0.2s ease;
       }
 
       .info-box:hover {
-        transform: translateY(-3px);
+        transform: translateY(-4px);
 
         background: rgba(255, 208, 0, 0.1);
       }
 
-      .yellow {
+      .info-box .yellow {
         color: #ffd000;
       }
 
@@ -574,59 +596,50 @@
        ========================================= */
 
       .question {
-        font-size: 22px;
+        font-size: 21px;
 
-        font-weight: 900;
+        font-weight: 800;
 
-        margin-bottom: 10px;
-      }
-
-      .question-sub {
-        color: #aeb8c8;
-
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
 
       /* =========================================
-       FORMULARIO
+       BOTONES
        ========================================= */
 
-      #respuestaForm {
+      .buttons {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+        gap: 10px;
+
         margin-top: 10px;
       }
 
-      .botones {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 12px;
-      }
-
-      .respuesta-btn {
+      button {
         border: none;
 
         border-radius: 16px;
 
-        padding: 18px 12px;
+        padding: 16px 10px;
 
-        font-size: 18px;
+        font-size: 16px;
 
         font-weight: 900;
 
         cursor: pointer;
 
         transition:
-          transform 0.15s,
-          box-shadow 0.15s,
-          opacity 0.2s;
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
       }
 
-      .respuesta-btn:hover {
+      button:hover {
         transform: translateY(-3px);
       }
 
-      .respuesta-btn:active {
+      button:active {
         transform: scale(0.96);
       }
 
@@ -644,96 +657,92 @@
         color: white;
       }
 
-      .respuesta-btn:disabled {
-        opacity: 0.6;
+      .btn-no-se {
+        background: linear-gradient(135deg, #555f73, #353d4d);
 
-        cursor: wait;
+        color: white;
       }
 
       /* =========================================
-       RESULTADO
+       RESPUESTA
        ========================================= */
 
-      #resultado {
+      #respuesta {
         display: none;
 
-        margin-top: 22px;
+        margin-top: 20px;
 
-        padding: 25px 20px;
+        padding: 22px;
 
-        border-radius: 20px;
+        border-radius: 18px;
 
-        background: rgba(255, 255, 255, 0.07);
+        background: rgba(255, 255, 255, 0.08);
 
-        animation: resultadoEntrada 0.7s ease;
-      }
-
-      #resultado h3 {
-        color: #ffd000;
-
-        font-size: 29px;
-
-        margin-bottom: 12px;
-      }
-
-      #resultado p {
-        color: #edf1f7;
+        line-height: 1.65;
 
         font-size: 17px;
 
-        line-height: 1.6;
+        animation: aparecerRespuesta 0.4s ease;
       }
 
-      .emoji-grande {
-        font-size: 50px;
-
-        margin-bottom: 10px;
-
-        animation: rebote 1s infinite alternate;
-      }
-
-      @keyframes rebote {
+      @keyframes aparecerRespuesta {
         from {
-          transform: translateY(0) rotate(-3deg);
+          opacity: 0;
+
+          transform: scale(0.95) translateY(15px);
         }
 
         to {
-          transform: translateY(-8px) rotate(3deg);
+          opacity: 1;
+
+          transform: scale(1) translateY(0);
         }
       }
 
-      /* =========================================
-       ESTADO DE ENVÍO
-       ========================================= */
-
-      #estadoEnvio {
-        margin-top: 14px;
-
-        font-size: 14px;
-
-        color: #9faabd;
-      }
-
-      #estadoEnvio.exito {
+      #respuesta h2 {
         color: #ffd000;
 
-        font-weight: bold;
+        font-size: 25px;
+
+        margin-bottom: 10px;
       }
 
-      #estadoEnvio.error {
-        color: #ff8585;
+      #respuesta p {
+        color: #edf1f7;
+      }
 
-        font-weight: bold;
+      #respuesta strong {
+        color: #ffd000;
       }
 
       /* =========================================
-       VOLVER
+       COMPARTIR
        ========================================= */
 
-      #volver {
+      .compartir {
         display: none;
 
-        margin: 15px auto 0;
+        width: 100%;
+
+        margin-top: 14px;
+
+        background: linear-gradient(135deg, #25d366, #128c7e);
+
+        color: white;
+
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+
+        animation: aparecerRespuesta 0.5s ease;
+      }
+
+      /* =========================================
+       BOTON VOLVER
+       ========================================= */
+
+      .volver {
+        display: none;
+
+        margin: 14px auto 0;
 
         background: transparent;
 
@@ -743,17 +752,15 @@
 
         padding: 10px 18px;
 
-        border-radius: 12px;
-
-        cursor: pointer;
+        font-size: 14px;
       }
 
       /* =========================================
-       FOOTER
+       PIE
        ========================================= */
 
       .footer {
-        margin-top: 30px;
+        margin-top: 28px;
 
         color: #9faabd;
 
@@ -763,86 +770,18 @@
       }
 
       /* =========================================
-       ANIMACIONES
+       MOVIL
        ========================================= */
 
-      @keyframes aparecer {
-        from {
-          opacity: 0;
-          transform: scale(0.96);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @keyframes deslizar {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes resultadoEntrada {
-        from {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      /* =========================================
-       CONFETI
-       ========================================= */
-
-      .confeti {
-        position: fixed;
-
-        top: -20px;
-
-        width: 9px;
-
-        height: 15px;
-
-        z-index: 10000;
-
-        pointer-events: none;
-
-        animation: caer 3s linear forwards;
-      }
-
-      @keyframes caer {
-        to {
-          transform: translateY(110vh) rotate(720deg);
-
-          opacity: 0;
-        }
-      }
-
-      /* =========================================
-       CELULARES
-       ========================================= */
-
-      @media (max-width: 480px) {
-        #contenido {
-          padding: 10px 7px 30px;
+      @media (max-width: 600px) {
+        body {
+          padding: 10px 7px 25px;
         }
 
         .card {
           border-radius: 22px;
 
-          padding: 24px 15px 30px;
+          padding: 24px 15px 28px;
         }
 
         .logo {
@@ -851,7 +790,7 @@
           max-height: 145px;
         }
 
-        .botones {
+        .buttons {
           grid-template-columns: 1fr;
         }
 
@@ -863,8 +802,8 @@
           font-size: 17px;
         }
 
-        .welcome-box {
-          padding: 30px 18px 32px;
+        .nombre-box {
+          padding: 30px 18px;
         }
       }
     </style>
@@ -875,209 +814,149 @@
        PANTALLA INICIAL
        ========================================= -->
 
-    <section id="bienvenida">
-      <div class="welcome-box">
-        <div class="welcome-fire">🔥</div>
+    <section id="pantallaNombre">
+      <div class="nombre-box">
+        <img src="logo.png" alt="Logo de la iglesia" class="nombre-logo" />
 
-        <h1>
-          JÓVENES
-          <br />
-          <span>DE VANGUARDIA</span>
-        </h1>
+        <h2>¡HOLA! <span>🔥</span></h2>
 
-        <p class="welcome-text">
-          Tenemos una invitación especial para ti. 🙌
-
-          <br />
-
-          Pero antes...
-        </p>
-
-        <label class="nombre-label" for="nombre"> ¿Cómo te llamas? </label>
+        <p>Antes de abrir la invitación, queremos saber quién eres. 🙌</p>
 
         <input
-          id="nombre"
           type="text"
+          id="nombre"
           placeholder="Escribe tu nombre"
           maxlength="40"
           autocomplete="name"
         />
 
-        <button id="entrar" type="button" onclick="entrarInvitacion()">
-          🔥 ENTRAR A LA INVITACIÓN
+        <button class="btn-comenzar" onclick="comenzarInvitacion()">
+          🔥 ABRIR MI INVITACIÓN
         </button>
 
-        <div id="errorNombre">Por favor escribe tu nombre 🙌</div>
+        <p id="errorNombre" class="error">
+          Por favor escribe tu nombre para continuar.
+        </p>
       </div>
     </section>
 
     <!-- =========================================
-       CONTENIDO PRINCIPAL
+       INVITACIÓN
        ========================================= -->
 
-    <main id="contenido">
-      <div class="card">
-        <!-- SALUDO -->
+    <main class="card">
+      <!-- SALUDO PERSONALIZADO -->
 
-        <div class="saludo">
-          <small> ¡NOS ALEGRA TENERTE AQUÍ! </small>
+      <div id="saludo" class="saludo"></div>
 
-          <strong id="saludoNombre"> 🔥 </strong>
+      <!-- LOGO -->
+
+      <img src="logo.png" alt="Logo de la iglesia" class="logo" />
+
+      <!-- BADGE -->
+
+      <div class="badge">🔥 MINISTERIO JÓVENES DE VANGUARDIA</div>
+
+      <!-- TITULO -->
+
+      <h1>
+        JÓVENES<br />
+
+        <span class="amarillo"> DE VANGUARDIA </span>
+      </h1>
+
+      <!-- INVITACIÓN -->
+
+      <p class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</p>
+
+      <!-- VERSÍCULO -->
+
+      <div class="verse">
+        <strong> “Nadie tenga en poco tu juventud...” </strong>
+
+        <span> 1 Timoteo 4:12 </span>
+      </div>
+
+      <!-- MENSAJE -->
+
+      <p class="message">
+        Dios tiene algo especial preparado para ti. No importa cómo haya sido tu
+        semana, ven con un corazón dispuesto, porque juntos vamos a buscar a
+        Dios, compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
+
+        <br /><br />
+
+        <strong> ¡No te quedes en casa! Tu presencia hace falta. 🔥 </strong>
+      </p>
+
+      <!-- INFORMACIÓN -->
+
+      <section class="info">
+        <div class="info-box">
+          📅
+
+          <span class="yellow"> ESTE SÁBADO </span>
         </div>
 
-        <!-- LOGO DE LA IGLESIA -->
+        <div class="info-box">
+          🕓
 
-        <img src="logo.png" alt="Logo de la iglesia" class="logo" />
-
-        <!-- BADGE -->
-
-        <div class="badge">🔥 MINISTERIO JÓVENES DE VANGUARDIA</div>
-
-        <!-- TITULO -->
-
-        <h2 class="titulo">
-          JÓVENES
-          <br />
-
-          <span class="amarillo"> DE VANGUARDIA </span>
-        </h2>
-
-        <!-- INVITACIÓN -->
-
-        <p class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</p>
-
-        <!-- VERSÍCULO -->
-
-        <div class="verse">
-          <strong> “Nadie tenga en poco tu juventud...” </strong>
-
-          <span> 1 Timoteo 4:12 </span>
+          <span class="yellow"> 4:00 PM </span>
         </div>
 
-        <!-- MENSAJE -->
+        <div class="info-box">
+          🔥
 
-        <p class="message">
-          Dios tiene algo especial preparado para ti. No importa cómo haya sido
-          tu semana, ven con un corazón dispuesto, porque juntos vamos a buscar
-          a Dios, compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
-
-          <br />
-          <br />
-
-          <strong> ¡No te quedes en casa! Tu presencia hace falta. 🔥 </strong>
-        </p>
-
-        <!-- INFORMACIÓN -->
-
-        <section class="info">
-          <div class="info-box">
-            📅
-
-            <span class="yellow"> ESTE SÁBADO </span>
-          </div>
-
-          <div class="info-box">
-            🕓
-
-            <span class="yellow"> 4:00 PM </span>
-          </div>
-
-          <div class="info-box">
-            🔥
-
-            <span class="yellow"> SERVICIO DE JÓVENES </span>
-          </div>
-        </section>
-
-        <!-- PREGUNTA -->
-
-        <p class="question">
-          <span id="preguntaNombre"> ¿Vas a estar </span>
-
-          con nosotros? 🙌
-        </p>
-
-        <p class="question-sub">Queremos saber si contamos contigo.</p>
-
-        <!-- =========================================
-           FORMULARIO FORMSPREE
-           ========================================= -->
-
-        <form
-          id="respuestaForm"
-          action="https://formspree.io/f/xyegbgwy"
-          method="POST"
-        >
-          <!-- NOMBRE -->
-
-          <input type="hidden" id="nombreForm" name="nombre" />
-
-          <!-- RESPUESTA -->
-
-          <input type="hidden" id="respuestaFormCampo" name="respuesta" />
-
-          <!-- ASUNTO -->
-
-          <input
-            type="hidden"
-            name="_subject"
-            value="🔥 Nueva respuesta - Jóvenes de Vanguardia"
-          />
-
-          <!-- ORIGEN -->
-
-          <input
-            type="hidden"
-            name="pagina"
-            value="Invitación Jóvenes de Vanguardia"
-          />
-
-          <div class="botones">
-            <button
-              type="button"
-              class="respuesta-btn btn-si"
-              onclick="enviarRespuesta('¡IRÉ! 🙌🔥')"
-            >
-              🙌 ¡IRÉ!
-            </button>
-
-            <button
-              type="button"
-              class="respuesta-btn btn-no"
-              onclick="enviarRespuesta('NO PODRÉ IR 😔')"
-            >
-              😔 NO PODRÉ IR
-            </button>
-          </div>
-
-          <div id="estadoEnvio"></div>
-        </form>
-
-        <!-- RESULTADO -->
-
-        <div id="resultado">
-          <div class="emoji-grande" id="emojiResultado">🔥</div>
-
-          <h3 id="tituloResultado">¡ESO ES!</h3>
-
-          <p id="textoResultado"></p>
+          <span class="yellow"> SERVICIO DE JÓVENES </span>
         </div>
+      </section>
 
-        <!-- VOLVER -->
+      <!-- PREGUNTA -->
 
-        <button id="volver" type="button" onclick="volverRespuesta()">
-          ← Cambiar mi respuesta
+      <p class="question">¿Vas a estar con nosotros? 🙌</p>
+
+      <p class="message">Queremos saber si contamos contigo.</p>
+
+      <!-- BOTONES -->
+
+      <div class="buttons">
+        <button class="btn-si" onclick="mostrarRespuesta('si')">
+          🙌 ¡IRÉ!
         </button>
 
-        <!-- FOOTER -->
+        <button class="btn-no" onclick="mostrarRespuesta('no')">
+          😔 NO IRÉ
+        </button>
 
-        <div class="footer">
-          Jóvenes de Vanguardia 🔥
+        <button class="btn-no-se" onclick="mostrarRespuesta('nose')">
+          🤔 TODAVÍA NO SÉ
+        </button>
+      </div>
 
-          <br />
+      <!-- RESPUESTA -->
 
-          Un lugar para crecer, servir y buscar a Dios.
-        </div>
+      <div id="respuesta"></div>
+
+      <!-- COMPARTIR -->
+
+      <button id="compartir" class="compartir" onclick="compartirWhatsApp()">
+        📲 COMPARTIR CON MIS AMIGOS
+      </button>
+
+      <!-- VOLVER -->
+
+      <button id="volver" class="volver" onclick="volverInicio()">
+        ← Volver
+      </button>
+
+      <!-- PIE -->
+
+      <div class="footer">
+        Jóvenes de Vanguardia 🔥
+
+        <br />
+
+        Un lugar para crecer, servir y buscar a Dios.
       </div>
     </main>
 
@@ -1087,245 +966,291 @@
 
     <script>
       /* =========================================
+       CONFIGURACIÓN FORMSPREE
+       ========================================= */
+
+      const FORMSPREE_URL = "https://formspree.io/f/xyegbgwy";
+
+      /* =========================================
        VARIABLES
        ========================================= */
 
       let nombreJoven = "";
 
-      /* =========================================
-       ENTRAR A LA INVITACIÓN
-       ========================================= */
-
-      function entrarInvitacion() {
-        const campoNombre = document.getElementById("nombre");
-
-        const error = document.getElementById("errorNombre");
-
-        const nombre = campoNombre.value.trim();
-
-        if (!nombre) {
-          error.style.display = "block";
-
-          campoNombre.focus();
-
-          return;
-        }
-
-        error.style.display = "none";
-
-        nombreJoven = nombre;
-
-        /* Mostrar nombre */
-
-        document.getElementById("saludoNombre").textContent =
-          "¡Hola, " + nombreJoven + "! 🔥";
-
-        document.getElementById("preguntaNombre").textContent =
-          nombreJoven + ", ¿vas a estar";
-
-        /* Guardar nombre para Formspree */
-
-        document.getElementById("nombreForm").value = nombreJoven;
-
-        /* Ocultar bienvenida */
-
-        document.getElementById("bienvenida").classList.add("ocultar");
-
-        /* Mostrar invitación */
-
-        setTimeout(function () {
-          document.getElementById("contenido").classList.add("mostrar");
-
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        }, 500);
-      }
+      let respuestaSeleccionada = "";
 
       /* =========================================
-       ENTER EN EL CAMPO
+       INICIO
        ========================================= */
 
       document
         .getElementById("nombre")
         .addEventListener("keydown", function (event) {
           if (event.key === "Enter") {
-            entrarInvitacion();
+            comenzarInvitacion();
           }
         });
 
-      /* =========================================
-       ENVIAR RESPUESTA
-       ========================================= */
+      function comenzarInvitacion() {
+        const campo = document.getElementById("nombre");
 
-      async function enviarRespuesta(respuesta) {
-        const botones = document.querySelectorAll(".respuesta-btn");
+        const error = document.getElementById("errorNombre");
 
-        const estado = document.getElementById("estadoEnvio");
+        const nombre = campo.value.trim();
 
-        /* Seguridad */
+        if (!nombre) {
+          error.style.display = "block";
 
-        if (!nombreJoven) {
+          campo.focus();
+
           return;
         }
 
-        /* Desactivar botones */
+        nombreJoven = nombre;
 
-        botones.forEach(function (btn) {
-          btn.disabled = true;
+        error.style.display = "none";
+
+        document.getElementById("saludo").innerHTML =
+          "🔥 ¡Bienvenido/a, " + escaparHTML(nombreJoven) + "!";
+
+        document.getElementById("pantallaNombre").classList.add("oculta");
+
+        window.scrollTo({
+          top: 0,
+
+          behavior: "smooth",
+        });
+      }
+
+      /* =========================================
+       PROTEGER TEXTO
+       ========================================= */
+
+      function escaparHTML(texto) {
+        const div = document.createElement("div");
+
+        div.textContent = texto;
+
+        return div.innerHTML;
+      }
+
+      /* =========================================
+       MOSTRAR RESPUESTA
+       ========================================= */
+
+      function mostrarRespuesta(opcion) {
+        const respuesta = document.getElementById("respuesta");
+
+        const compartir = document.getElementById("compartir");
+
+        const volver = document.getElementById("volver");
+
+        respuestaSeleccionada = opcion;
+
+        if (opcion === "si") {
+          respuesta.innerHTML = `
+
+          <h2>
+            🔥 ¡ESO ES, ${escaparHTML(nombreJoven)}!
+          </h2>
+
+          <p>
+
+            ¡Nos alegra muchísimo saber que vienes!
+
+            <br><br>
+
+            Prepárate para vivir un tiempo
+            especial en la presencia de Dios.
+
+            <br><br>
+
+            <strong>
+              ¡Te esperamos este sábado
+              a las 4:00 PM! 🙌❤️‍🔥
+            </strong>
+
+          </p>
+
+        `;
+        } else if (opcion === "no") {
+          respuesta.innerHTML = `
+
+          <h2>
+            😔 ¡PIÉNSALO!
+          </h2>
+
+          <p>
+
+            ¡Vamos, ${escaparHTML(nombreJoven)}!
+
+            No dejes pasar esta oportunidad.
+
+            <br><br>
+
+            Dios puede tener una palabra
+            especial para ti este sábado.
+
+            <br><br>
+
+            A veces encontramos muchas
+            razones para no ir, pero recuerda
+            que tu crecimiento espiritual
+            también necesita que apartes
+            un tiempo para Dios.
+
+            <br><br>
+
+            <strong>
+              ¡Anímate! Te estamos esperando.
+              🔥🙌
+            </strong>
+
+            <br><br>
+
+            Piénsalo bien...
+
+          </p>
+
+        `;
+        } else {
+          respuesta.innerHTML = `
+
+          <h2>
+            🤔 TODAVÍA NO SÉ
+          </h2>
+
+          <p>
+
+            Está bien, ${escaparHTML(nombreJoven)}.
+
+            <br><br>
+
+            Tómate un momento para pensarlo.
+
+            <br><br>
+
+            Dios puede tener una palabra
+            especial para ti este sábado.
+
+            <br><br>
+
+            No tienes que decidirlo todo ahora.
+
+            <br><br>
+
+            <strong>
+              ¡Ojalá podamos verte con nosotros!
+              🔥🙌
+            </strong>
+
+            <br><br>
+
+            Piénsalo bien...
+
+          </p>
+
+        `;
+        }
+
+        respuesta.style.display = "block";
+
+        compartir.style.display = "block";
+
+        volver.style.display = "block";
+
+        respuesta.scrollIntoView({
+          behavior: "smooth",
+
+          block: "center",
         });
 
-        estado.textContent = "Enviando tu respuesta... 🔥";
+        enviarRespuesta(opcion);
+      }
 
-        estado.className = "";
+      /* =========================================
+       ENVIAR A FORMSPREE
+       ========================================= */
 
-        /* Guardar respuesta */
+      async function enviarRespuesta(opcion) {
+        let textoRespuesta = "";
 
-        document.getElementById("respuestaFormCampo").value = respuesta;
-
-        const formulario = document.getElementById("respuestaForm");
+        if (opcion === "si") {
+          textoRespuesta = "🙌 ¡IRÉ!";
+        } else if (opcion === "no") {
+          textoRespuesta = "😔 NO IRÉ";
+        } else {
+          textoRespuesta = "🤔 TODAVÍA NO SÉ";
+        }
 
         try {
-          const datos = new FormData(formulario);
-
-          const response = await fetch(formulario.action, {
+          await fetch(FORMSPREE_URL, {
             method: "POST",
 
-            body: datos,
-
             headers: {
+              "Content-Type": "application/json",
+
               Accept: "application/json",
             },
+
+            body: JSON.stringify({
+              nombre: nombreJoven,
+
+              respuesta: textoRespuesta,
+
+              fecha: new Date().toLocaleString("es-CO"),
+
+              asunto: "Respuesta - Jóvenes de Vanguardia",
+            }),
           });
-
-          if (response.ok) {
-            estado.textContent = "¡Respuesta enviada correctamente! 🔥";
-
-            estado.className = "exito";
-
-            mostrarResultado(respuesta);
-          } else {
-            throw new Error("No se pudo enviar");
-          }
         } catch (error) {
-          console.error(error);
-
-          estado.textContent =
-            "No pudimos enviar la respuesta. Revisa tu conexión e inténtalo otra vez.";
-
-          estado.className = "error";
-
-          botones.forEach(function (btn) {
-            btn.disabled = false;
-          });
+          console.log("No se pudo enviar la respuesta:", error);
         }
       }
 
       /* =========================================
-       MOSTRAR RESULTADO
+       COMPARTIR WHATSAPP
        ========================================= */
 
-      function mostrarResultado(respuesta) {
-        const resultado = document.getElementById("resultado");
+      function compartirWhatsApp() {
+        const url = "https://jovenesdevanguardia.github.io/JV/";
 
-        const emoji = document.getElementById("emojiResultado");
+        const mensaje =
+          "🔥 Jóvenes de Vanguardia 🔥\n\n" +
+          "¡Este sábado tenemos una cita! 🙌\n\n" +
+          "Te invito al Servicio de Jóvenes.\n\n" +
+          "⏰ 4:00 PM\n\n" +
+          "¡No te quedes en casa! 🔥🙌\n\n" +
+          url;
 
-        const titulo = document.getElementById("tituloResultado");
+        const whatsappURL =
+          "https://wa.me/?text=" + encodeURIComponent(mensaje);
 
-        const texto = document.getElementById("textoResultado");
+        window.open(whatsappURL, "_blank");
+      }
 
-        if (respuesta.includes("IRÉ")) {
-          emoji.textContent = "🎉🔥🙌";
+      /* =========================================
+       VOLVER
+       ========================================= */
 
-          titulo.textContent = "¡ESO ES, " + nombreJoven.toUpperCase() + "!";
+      function volverInicio() {
+        const respuesta = document.getElementById("respuesta");
 
-          texto.innerHTML =
-            "¡Nos alegra muchísimo saber que vienes!" +
-            "<br><br>" +
-            "Prepárate para vivir un tiempo " +
-            "especial en la presencia de Dios." +
-            "<br><br>" +
-            "<strong>¡Te esperamos este sábado " +
-            "a las 4:00 PM! ❤️‍🔥</strong>";
+        const compartir = document.getElementById("compartir");
 
-          lanzarConfeti();
-        } else {
-          emoji.textContent = "😔❤️";
+        const volver = document.getElementById("volver");
 
-          titulo.textContent =
-            "¡TE VAMOS A EXTRAÑAR, " + nombreJoven.toUpperCase() + "!";
+        respuesta.style.display = "none";
 
-          texto.innerHTML =
-            "Entendemos que quizá no puedas venir." +
-            "<br><br>" +
-            "Pero si tus planes cambian, " +
-            "las puertas están abiertas para ti." +
-            "<br><br>" +
-            "<strong>¡Esperamos verte pronto! 🔥🙌</strong>";
-        }
+        compartir.style.display = "none";
 
-        resultado.style.display = "block";
+        volver.style.display = "none";
 
-        document.getElementById("volver").style.display = "block";
+        window.scrollTo({
+          top: 0,
 
-        resultado.scrollIntoView({
           behavior: "smooth",
-          block: "center",
         });
-      }
-
-      /* =========================================
-       CAMBIAR RESPUESTA
-       ========================================= */
-
-      function volverRespuesta() {
-        document.getElementById("resultado").style.display = "none";
-
-        document.getElementById("volver").style.display = "none";
-
-        document.getElementById("estadoEnvio").textContent = "";
-
-        document.querySelectorAll(".respuesta-btn").forEach(function (btn) {
-          btn.disabled = false;
-        });
-
-        document.getElementById("respuestaForm").scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
-
-      /* =========================================
-       CONFETI
-       ========================================= */
-
-      function lanzarConfeti() {
-        const cantidad = 70;
-
-        for (let i = 0; i < cantidad; i++) {
-          const confeti = document.createElement("div");
-
-          confeti.className = "confeti";
-
-          confeti.style.left = Math.random() * 100 + "vw";
-
-          confeti.style.animationDelay = Math.random() * 1.2 + "s";
-
-          confeti.style.background = [
-            "#ffd000",
-            "#ff9d00",
-            "#ffffff",
-            "#ff5f5f",
-            "#5fd4ff",
-          ][Math.floor(Math.random() * 5)];
-
-          document.body.appendChild(confeti);
-
-          setTimeout(function () {
-            confeti.remove();
-          }, 4500);
-        }
       }
     </script>
   </body>
