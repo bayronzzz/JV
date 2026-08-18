@@ -2,14 +2,56 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Jóvenes de Vanguardia 🔥</title>
 
-    <meta name="theme-color" content="#0d1728" />
+    <!-- ================================
+       VISTA PREVIA AL COMPARTIR
+       ================================ -->
+
+    <meta property="og:title" content="Jóvenes de Vanguardia 🔥" />
+
+    <meta
+      property="og:description"
+      content="¡Este sábado tenemos una cita! 🙌🔥 Servicio de Jóvenes de Vanguardia. ¡Te esperamos!"
+    />
+
+    <meta
+      property="og:image"
+      content="https://jovenesdevanguardia.github.io/JV/img2.png"
+    />
+
+    <meta
+      property="og:url"
+      content="https://jovenesdevanguardia.github.io/JV/"
+    />
+
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:title" content="Jóvenes de Vanguardia 🔥" />
+
+    <meta
+      name="twitter:description"
+      content="¡Este sábado tenemos una cita! 🙌🔥"
+    />
+
+    <meta
+      name="twitter:image"
+      content="https://jovenesdevanguardia.github.io/JV/img2.png"
+    />
 
     <style>
+      /* ================================
+       CONFIGURACIÓN GENERAL
+       ================================ */
+
       * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
       }
 
@@ -18,310 +60,338 @@
       }
 
       body {
-        margin: 0;
         min-height: 100vh;
-        font-family: "Segoe UI", Arial, sans-serif;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        color: white;
+
         background:
           radial-gradient(
-            circle at 20% 20%,
-            rgba(255, 255, 255, 0.12) 1px,
-            transparent 2px
+            circle at 15% 15%,
+            rgba(255, 210, 0, 0.13),
+            transparent 25%
           ),
           radial-gradient(
-            circle at 80% 30%,
-            rgba(255, 255, 255, 0.1) 1px,
-            transparent 2px
+            circle at 85% 80%,
+            rgba(255, 170, 0, 0.1),
+            transparent 28%
           ),
-          radial-gradient(
-            circle at 40% 80%,
-            rgba(255, 255, 255, 0.1) 1px,
-            transparent 2px
-          ),
-          linear-gradient(135deg, #07101f, #111c31, #080e19);
-        background-size:
-          180px 180px,
-          230px 230px,
-          270px 270px,
-          cover;
-        color: white;
+          linear-gradient(145deg, #050b16, #101b30, #070d18);
+
+        display: flex;
+        justify-content: center;
+
+        padding: 20px 12px 40px;
+
         overflow-x: hidden;
       }
 
-      .stars {
+      /* ================================
+       ESTRELLAS DE FONDO
+       ================================ */
+
+      body::before {
+        content: "✦     ✧       ✦       ✧     ✦     ✧       ✦";
+
         position: fixed;
-        inset: 0;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        color: rgba(255, 255, 255, 0.3);
+
+        font-size: 22px;
+
+        line-height: 100px;
+
+        letter-spacing: 18px;
+
         pointer-events: none;
+
+        overflow: hidden;
+
         z-index: 0;
       }
 
-      .star {
-        position: absolute;
-        color: white;
-        opacity: 0.8;
-        animation: twinkle 2s infinite alternate;
-      }
-
-      .star:nth-child(1) {
-        left: 8%;
-        top: 10%;
-        font-size: 18px;
-      }
-
-      .star:nth-child(2) {
-        left: 18%;
-        top: 32%;
-        font-size: 12px;
-      }
-
-      .star:nth-child(3) {
-        left: 85%;
-        top: 15%;
-        font-size: 20px;
-      }
-
-      .star:nth-child(4) {
-        left: 91%;
-        top: 42%;
-        font-size: 14px;
-      }
-
-      .star:nth-child(5) {
-        left: 6%;
-        top: 68%;
-        font-size: 13px;
-      }
-
-      .star:nth-child(6) {
-        left: 80%;
-        top: 75%;
-        font-size: 18px;
-      }
-
-      @keyframes twinkle {
-        from {
-          opacity: 0.25;
-          transform: scale(0.8);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1.2);
-        }
-      }
-
-      .page {
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 25px 12px 50px;
-        position: relative;
-        z-index: 1;
-      }
+      /* ================================
+       TARJETA PRINCIPAL
+       ================================ */
 
       .card {
         width: 100%;
-        max-width: 650px;
-        background: rgba(12, 22, 40, 0.96);
-        border: 2px solid rgba(255, 215, 0, 0.55);
+        max-width: 620px;
+
+        position: relative;
+
+        z-index: 1;
+
+        background: rgba(10, 18, 32, 0.96);
+
+        border: 2px solid rgba(255, 208, 0, 0.55);
+
         border-radius: 28px;
-        padding: 28px 22px 35px;
+
+        padding: 28px 22px 32px;
+
         text-align: center;
-        box-shadow:
-          0 0 35px rgba(255, 193, 7, 0.12),
-          0 20px 60px rgba(0, 0, 0, 0.45);
+
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
       }
 
-      /* LOGO */
+      /* ================================
+       LOGO
+       ================================ */
+
       .logo {
-        width: 180px;
-        max-width: 70%;
-        height: auto;
-        display: block;
-        margin: 0 auto 18px;
-        border-radius: 15px;
+        width: 170px;
+
+        max-width: 75%;
+
+        max-height: 170px;
+
         object-fit: contain;
-        filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+
+        display: block;
+
+        margin: 0 auto 18px;
+
+        border-radius: 18px;
+
+        filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.35));
       }
 
-      .fire {
-        font-size: 42px;
-        margin-bottom: 5px;
-        animation: fireMove 1.5s ease-in-out infinite alternate;
-      }
-
-      @keyframes fireMove {
-        from {
-          transform: scale(1);
-        }
-
-        to {
-          transform: scale(1.12);
-        }
-      }
+      /* ================================
+       ETIQUETA
+       ================================ */
 
       .badge {
         display: inline-block;
-        background: linear-gradient(135deg, #ffd000, #ffae00);
-        color: #101010;
-        padding: 9px 18px;
-        border-radius: 30px;
-        font-weight: 800;
+
+        padding: 10px 18px;
+
+        border-radius: 40px;
+
+        background: linear-gradient(135deg, #ffe000, #ffad00);
+
+        color: #111;
+
         font-size: 14px;
-        box-shadow: 0 8px 20px rgba(255, 193, 7, 0.25);
-        margin-bottom: 18px;
+
+        font-weight: 900;
+
+        box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+
+        margin-bottom: 20px;
       }
+
+      /* ================================
+       TITULO
+       ================================ */
 
       h1 {
-        margin: 0;
-        font-size: clamp(42px, 12vw, 76px);
+        font-size: clamp(42px, 11vw, 76px);
+
         line-height: 0.95;
+
         font-weight: 900;
+
         letter-spacing: -2px;
-        text-transform: uppercase;
-        text-shadow: 0 5px 18px rgba(255, 255, 255, 0.15);
+
+        margin-bottom: 16px;
       }
 
-      h1 span {
-        display: block;
+      h1 .amarillo {
         color: #ffd000;
-        margin: 8px 0;
       }
+
+      /* ================================
+       SUBTITULO
+       ================================ */
 
       .subtitle {
-        margin: 22px 0;
-        font-size: clamp(20px, 5vw, 27px);
-        font-weight: 600;
-        color: #e6edf7;
+        font-size: clamp(20px, 5vw, 28px);
+
+        line-height: 1.3;
+
+        font-weight: 700;
+
+        margin-bottom: 22px;
       }
 
+      /* ================================
+       VERSÍCULO
+       ================================ */
+
       .verse {
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.07);
+
         border-left: 5px solid #ffd000;
+
         border-radius: 14px;
-        padding: 20px 17px;
-        margin: 20px 0;
-        font-size: 18px;
-        line-height: 1.55;
+
+        padding: 18px;
+
+        margin-bottom: 24px;
       }
 
       .verse strong {
-        color: #ffd000;
         display: block;
-        margin-bottom: 8px;
-      }
 
-      .invite {
-        margin: 25px 0;
-        font-size: 19px;
-        line-height: 1.65;
-        color: #e8edf5;
-      }
-
-      .highlight {
         color: #ffd000;
+
+        font-size: 17px;
+
+        line-height: 1.5;
+      }
+
+      .verse span {
+        display: block;
+
+        margin-top: 8px;
+
+        color: #ddd;
+
+        font-size: 15px;
+      }
+
+      /* ================================
+       MENSAJE
+       ================================ */
+
+      .message {
+        font-size: 18px;
+
+        line-height: 1.65;
+
+        color: #edf1f7;
+
+        margin-bottom: 24px;
+      }
+
+      .message strong {
+        color: #ffd000;
+      }
+
+      /* ================================
+       INFORMACIÓN DEL SERVICIO
+       ================================ */
+
+      .info {
+        display: grid;
+
+        gap: 12px;
+
+        margin: 22px 0 26px;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.07);
+
+        border-radius: 16px;
+
+        padding: 16px;
+
+        font-size: 19px;
+
         font-weight: 800;
       }
 
-      .event {
-        margin: 25px 0;
-        padding: 22px 15px;
-        border-radius: 20px;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 208, 0, 0.14),
-          rgba(255, 255, 255, 0.06)
-        );
-        border: 1px solid rgba(255, 208, 0, 0.35);
-      }
-
-      .event-title {
+      .info-box .yellow {
         color: #ffd000;
-        font-size: 26px;
-        font-weight: 900;
-        margin-bottom: 10px;
       }
 
-      .event-info {
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 1.6;
+      /* ================================
+       PREGUNTA
+       ================================ */
+
+      .question {
+        font-size: 21px;
+
+        font-weight: 800;
+
+        margin-bottom: 18px;
       }
 
-      .buttons-title {
-        margin-top: 28px;
-        margin-bottom: 14px;
-        font-size: 19px;
-        font-weight: 700;
-      }
+      /* ================================
+       BOTONES
+       ================================ */
 
       .buttons {
-        display: flex;
-        justify-content: center;
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
         gap: 12px;
-        flex-wrap: wrap;
+
+        margin-top: 10px;
       }
 
       button {
         border: none;
-        cursor: pointer;
-        padding: 15px 28px;
-        border-radius: 50px;
+
+        border-radius: 16px;
+
+        padding: 17px 12px;
+
         font-size: 18px;
-        font-weight: 800;
-        transition: 0.25s ease;
-        min-width: 135px;
-      }
 
-      .yes {
-        background: linear-gradient(135deg, #ffd000, #ffad00);
-        color: #101010;
-        box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
-      }
+        font-weight: 900;
 
-      .no {
-        background: #2b3445;
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-      }
+        cursor: pointer;
 
-      button:hover {
-        transform: translateY(-3px) scale(1.03);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
       }
 
       button:active {
         transform: scale(0.96);
       }
 
-      .response {
+      .btn-si {
+        background: linear-gradient(135deg, #ffd000, #ff9d00);
+
+        color: #111;
+
+        box-shadow: 0 8px 22px rgba(255, 174, 0, 0.25);
+      }
+
+      .btn-no {
+        background: #353d4d;
+
+        color: white;
+      }
+
+      /* ================================
+       RESPUESTA
+       ================================ */
+
+      #respuesta {
         display: none;
+
         margin-top: 20px;
-        padding: 20px 17px;
+
+        padding: 22px;
+
         border-radius: 18px;
-        font-size: 18px;
-        line-height: 1.6;
-        animation: appear 0.5s ease;
+
+        background: rgba(255, 255, 255, 0.08);
+
+        line-height: 1.65;
+
+        font-size: 17px;
+
+        animation: aparecer 0.35s ease;
       }
 
-      .response.show {
-        display: block;
-      }
-
-      .response.yes-response {
-        background: rgba(255, 208, 0, 0.12);
-        border: 1px solid #ffd000;
-      }
-
-      .response.no-response {
-        background: rgba(220, 53, 69, 0.12);
-        border: 1px solid #ff6875;
-      }
-
-      @keyframes appear {
+      @keyframes aparecer {
         from {
           opacity: 0;
-          transform: translateY(15px);
+          transform: translateY(10px);
         }
 
         to {
@@ -330,296 +400,302 @@
         }
       }
 
-      .closing {
-        margin-top: 28px;
-        font-size: 18px;
-        line-height: 1.6;
-        color: #cfd7e5;
+      #respuesta h2 {
+        color: #ffd000;
+
+        font-size: 25px;
+
+        margin-bottom: 10px;
       }
 
-      .closing strong {
-        color: #ffd000;
+      #respuesta p {
+        color: #edf1f7;
       }
+
+      /* ================================
+       BOTÓN VOLVER
+       ================================ */
+
+      .volver {
+        display: none;
+
+        margin: 14px auto 0;
+
+        background: transparent;
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+
+        color: #ddd;
+
+        padding: 10px 18px;
+
+        font-size: 14px;
+      }
+
+      /* ================================
+       PIE
+       ================================ */
 
       .footer {
-        margin-top: 30px;
+        margin-top: 28px;
+
+        color: #9faabd;
+
         font-size: 13px;
-        color: #8994a7;
+
+        line-height: 1.5;
       }
 
-      /* CORAZONES / FUEGO */
-      .particle {
-        position: fixed;
-        pointer-events: none;
-        z-index: 20;
-        animation: particleUp 4s linear forwards;
-      }
+      /* ================================
+       CELULARES
+       ================================ */
 
-      @keyframes particleUp {
-        0% {
-          transform: translateY(0) scale(0.7);
-          opacity: 0;
-        }
-
-        15% {
-          opacity: 1;
-        }
-
-        100% {
-          transform: translateY(-100vh) scale(1.4);
-          opacity: 0;
-        }
-      }
-
-      @media (max-width: 500px) {
-        .page {
-          padding: 12px 8px 35px;
+      @media (max-width: 480px) {
+        body {
+          padding: 10px 7px 25px;
         }
 
         .card {
           border-radius: 22px;
-          padding: 24px 15px 30px;
+
+          padding: 24px 15px 28px;
         }
 
         .logo {
           width: 145px;
-        }
 
-        .fire {
-          font-size: 36px;
-        }
-
-        .badge {
-          font-size: 12px;
-          padding: 8px 14px;
-        }
-
-        h1 {
-          font-size: 48px;
-        }
-
-        .subtitle {
-          font-size: 20px;
-        }
-
-        .verse {
-          font-size: 16px;
-        }
-
-        .invite {
-          font-size: 17px;
-        }
-
-        .event-title {
-          font-size: 23px;
-        }
-
-        .event-info {
-          font-size: 18px;
+          max-height: 145px;
         }
 
         .buttons {
-          flex-direction: column;
+          grid-template-columns: 1fr;
         }
 
-        button {
-          width: 100%;
+        .message {
+          font-size: 17px;
+        }
+
+        .info-box {
+          font-size: 17px;
         }
       }
     </style>
   </head>
 
   <body>
-    <div class="stars">
-      <div class="star">✦</div>
-      <div class="star">✦</div>
-      <div class="star">✦</div>
-      <div class="star">✦</div>
-      <div class="star">✦</div>
-      <div class="star">✦</div>
-    </div>
+    <main class="card">
+      <!-- ==========================================
+         IMAGEN / LOGO
 
-    <main class="page">
-      <section class="card">
-        <!--
-                LOGO DE LA IGLESIA
+         IMPORTANTE:
+         El archivo debe estar junto a index.html
 
-                IMPORTANTE:
-                Copia el logo desde D:\Iglesia
-                hacia D:\Descargas\jv
+         D:\Descargas\jv\img2.png
+         ========================================== -->
 
-                y ponle exactamente este nombre:
+      <img src="img2.png" alt="Jóvenes de Vanguardia" class="logo" />
 
-                logo.png
-            -->
+      <!-- ==========================================
+         NOMBRE DEL MINISTERIO
+         ========================================== -->
 
-        <img src="logo.png" alt="Logo de la iglesia" class="logo" />
+      <div class="badge">🔥 MINISTERIO JÓVENES DE VANGUARDIA</div>
 
-        <div class="fire">🔥</div>
+      <!-- ==========================================
+         TITULO
+         ========================================== -->
 
-        <div class="badge">MINISTERIO JÓVENES DE VANGUARDIA</div>
+      <h1>
+        JÓVENES<br />
+        <span class="amarillo"> DE VANGUARDIA </span>
+      </h1>
 
-        <h1>
-          JÓVENES
-          <span>DE</span>
-          VANGUARDIA
-        </h1>
+      <!-- ==========================================
+         INVITACIÓN
+         ========================================== -->
 
-        <div class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</div>
+      <p class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</p>
 
-        <div class="verse">
-          <strong> “Nadie tenga en poco tu juventud...” </strong>
+      <!-- ==========================================
+         VERSÍCULO
+         ========================================== -->
 
-          1 Timoteo 4:12
+      <div class="verse">
+        <strong> “Nadie tenga en poco tu juventud...” </strong>
+
+        <span> 1 Timoteo 4:12 </span>
+      </div>
+
+      <!-- ==========================================
+         MENSAJE
+         ========================================== -->
+
+      <p class="message">
+        Dios tiene algo especial preparado para ti. No importa cómo haya sido tu
+        semana, ven con un corazón dispuesto, porque juntos vamos a buscar a
+        Dios, compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
+
+        <br /><br />
+
+        <strong> ¡No te quedes en casa! Tu presencia hace falta. 🔥 </strong>
+      </p>
+
+      <!-- ==========================================
+         INFORMACIÓN
+         ========================================== -->
+
+      <section class="info">
+        <div class="info-box">📅 <span class="yellow">ESTE SÁBADO</span></div>
+
+        <div class="info-box">🕓 <span class="yellow">4:00 PM</span></div>
+
+        <div class="info-box">
+          🔥 <span class="yellow">SERVICIO DE JÓVENES</span>
         </div>
-
-        <div class="invite">
-          <p>Hey, joven 👋</p>
-
-          <p>
-            No queremos que te pierdas lo que Dios tiene preparado para nosotros
-            este sábado.
-          </p>
-
-          <p>
-            Será un tiempo para compartir, aprender, adorar y disfrutar juntos
-            como jóvenes. 🙌
-          </p>
-
-          <p class="highlight">¡Tu presencia hace falta! 🔥</p>
-        </div>
-
-        <div class="event">
-          <div class="event-title">📅 SERVICIO DE JÓVENES</div>
-
-          <div class="event-info">
-            🗓️ Este sábado
-            <br />
-            ⏰ 4:00 PM
-            <br />
-            📍 ¡Te esperamos!
-          </div>
-        </div>
-
-        <div class="buttons-title">¿Vas a acompañarnos? 👀</div>
-
-        <div class="buttons">
-          <button class="yes" onclick="ire()">🙌 ¡IRÉ!</button>
-
-          <button class="no" onclick="noIre()">😶 NO IRÉ</button>
-        </div>
-
-        <div id="yesResponse" class="response yes-response">
-          🔥 <strong>¡ESO ES!</strong> 🔥
-
-          <br /><br />
-
-          ¡Qué alegría saber que vas a estar con nosotros!
-
-          <br />
-
-          Prepárate porque será un tiempo increíble en la presencia de Dios. 🙌
-
-          <br /><br />
-
-          <strong> ¡Nos vemos este sábado a las 4:00 PM! </strong>
-        </div>
-
-        <div id="noResponse" class="response no-response">
-          😔 <strong>¡Ey, joven!</strong>
-
-          <br /><br />
-
-          ¿De verdad te lo vas a perder?
-
-          <br /><br />
-
-          Dios también quiere hacer algo especial contigo. No dejes que la
-          pereza, el cansancio o cualquier excusa te robe un momento que puede
-          cambiar tu vida.
-
-          <br /><br />
-
-          <strong> ¡Anímate y ven! 🔥 </strong>
-
-          <br /><br />
-
-          Todavía estás a tiempo de cambiar tu respuesta. 😉
-        </div>
-
-        <div class="closing">
-          <p>Somos una generación llamada a marcar la diferencia.</p>
-
-          <p>
-            <strong>
-              No somos el futuro... somos parte de lo que Dios está haciendo
-              HOY. 🔥
-            </strong>
-          </p>
-
-          <p>¡Te esperamos este sábado! 🙌</p>
-        </div>
-
-        <div class="footer">Ministerio Jóvenes de Vanguardia ❤️</div>
       </section>
+
+      <!-- ==========================================
+         PREGUNTA
+         ========================================== -->
+
+      <p class="question">¿Vas a estar con nosotros? 🙌</p>
+
+      <p class="message">Queremos saber si contamos contigo.</p>
+
+      <!-- ==========================================
+         BOTONES
+         ========================================== -->
+
+      <div class="buttons">
+        <button class="btn-si" onclick="mostrarRespuesta('si')">
+          🙌 ¡IRÉ!
+        </button>
+
+        <button class="btn-no" onclick="mostrarRespuesta('no')">
+          😔 NO IRÉ
+        </button>
+      </div>
+
+      <!-- ==========================================
+         RESPUESTA
+         ========================================== -->
+
+      <div id="respuesta"></div>
+
+      <button id="volver" class="volver" onclick="volverInicio()">
+        ← Volver
+      </button>
+
+      <!-- ==========================================
+         PIE
+         ========================================== -->
+
+      <div class="footer">
+        Jóvenes de Vanguardia 🔥
+
+        <br />
+
+        Un lugar para crecer, servir y buscar a Dios.
+      </div>
     </main>
 
+    <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+
     <script>
-      function ire() {
-        const yes = document.getElementById("yesResponse");
-        const no = document.getElementById("noResponse");
+      function mostrarRespuesta(opcion) {
+        const respuesta = document.getElementById("respuesta");
 
-        no.classList.remove("show");
-        yes.classList.add("show");
+        const volver = document.getElementById("volver");
 
-        crearParticulas(["🔥", "🙌", "✨", "💛"], 25);
+        if (opcion === "si") {
+          respuesta.innerHTML = `
 
-        yes.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
+          <h2>
+            🔥 ¡ESO ES!
+          </h2>
 
-      function noIre() {
-        const yes = document.getElementById("yesResponse");
-        const no = document.getElementById("noResponse");
+          <p>
 
-        yes.classList.remove("show");
-        no.classList.add("show");
+            ¡Nos alegra muchísimo saber que vienes!
 
-        crearParticulas(["😔", "💭", "🔥"], 12);
+            <br><br>
 
-        no.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
+            Prepárate para vivir un tiempo
+            especial en la presencia de Dios.
 
-      function crearParticulas(simbolos, cantidad) {
-        for (let i = 0; i < cantidad; i++) {
-          setTimeout(function () {
-            const particle = document.createElement("div");
+            <br><br>
 
-            particle.className = "particle";
+            <strong>
+              ¡Te esperamos este sábado
+              a las 4:00 PM! 🙌❤️‍🔥
+            </strong>
 
-            particle.innerHTML =
-              simbolos[Math.floor(Math.random() * simbolos.length)];
+          </p>
 
-            particle.style.left = Math.random() * 100 + "vw";
+        `;
+        } else {
+          respuesta.innerHTML = `
 
-            particle.style.bottom = "-30px";
+          <h2>
+            😔 ¡PIÉNSALO!
+          </h2>
 
-            particle.style.fontSize = 18 + Math.random() * 22 + "px";
+          <p>
 
-            particle.style.animationDuration = 3 + Math.random() * 3 + "s";
+            ¡Vamos, joven!
 
-            document.body.appendChild(particle);
+            No dejes pasar esta oportunidad.
 
-            setTimeout(function () {
-              particle.remove();
-            }, 7000);
-          }, i * 100);
+            <br><br>
+
+            Dios puede tener una palabra
+            especial para ti este sábado.
+
+            <br><br>
+
+            A veces encontramos muchas
+            razones para no ir, pero recuerda
+            que tu crecimiento espiritual
+            también necesita que apartes
+            un tiempo para Dios.
+
+            <br><br>
+
+            <strong>
+              ¡Anímate! Te estamos esperando.
+              🔥🙌
+            </strong>
+
+          </p>
+
+        `;
         }
+
+        respuesta.style.display = "block";
+
+        volver.style.display = "block";
+
+        respuesta.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+
+      function volverInicio() {
+        const respuesta = document.getElementById("respuesta");
+
+        const volver = document.getElementById("volver");
+
+        respuesta.style.display = "none";
+
+        volver.style.display = "none";
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       }
     </script>
   </body>
