@@ -2,12 +2,13 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Jóvenes de Vanguardia 🔥</title>
 
     <!-- =========================================
-       VISTA PREVIA AL COMPARTIR
+       VISTA PREVIA AL COMPARTIR EL ENLACE
        ========================================= -->
 
     <meta property="og:title" content="Jóvenes de Vanguardia 🔥" />
@@ -21,6 +22,10 @@
       property="og:image"
       content="https://jovenesdevanguardia.github.io/JV/IMG2.jpg"
     />
+
+    <meta property="og:image:alt" content="Invitación Jóvenes de Vanguardia" />
+
+    <meta property="og:image:type" content="image/jpeg" />
 
     <meta
       property="og:url"
@@ -45,7 +50,7 @@
 
     <style>
       /* =========================================
-       GENERAL
+       CONFIGURACIÓN GENERAL
        ========================================= */
 
       * {
@@ -68,7 +73,7 @@
         background:
           radial-gradient(
             circle at 15% 15%,
-            rgba(255, 210, 0, 0.16),
+            rgba(255, 210, 0, 0.15),
             transparent 25%
           ),
           radial-gradient(
@@ -102,7 +107,7 @@
         width: 100%;
         height: 100%;
 
-        color: rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.28);
 
         font-size: 22px;
 
@@ -116,7 +121,7 @@
 
         z-index: 0;
 
-        animation: estrellas 8s linear infinite;
+        animation: estrellas 12s linear infinite;
       }
 
       @keyframes estrellas {
@@ -125,7 +130,7 @@
         }
 
         50% {
-          transform: translateY(30px);
+          transform: translateY(-30px);
         }
 
         100% {
@@ -134,7 +139,7 @@
       }
 
       /* =========================================
-       PANTALLA DE NOMBRE
+       PANTALLA PARA PEDIR EL NOMBRE
        ========================================= */
 
       #pantallaNombre {
@@ -142,23 +147,17 @@
 
         inset: 0;
 
-        background:
-          radial-gradient(
-            circle at center,
-            rgba(255, 208, 0, 0.15),
-            transparent 35%
-          ),
-          linear-gradient(145deg, #050b16, #101b30, #050a14);
+        z-index: 9999;
 
         display: flex;
 
-        align-items: center;
-
         justify-content: center;
+
+        align-items: center;
 
         padding: 20px;
 
-        z-index: 9999;
+        background: radial-gradient(circle at center, #172642, #050b16 75%);
 
         transition:
           opacity 0.6s ease,
@@ -176,28 +175,28 @@
       .nombre-box {
         width: 100%;
 
-        max-width: 470px;
+        max-width: 440px;
 
         text-align: center;
 
-        background: rgba(10, 18, 32, 0.97);
-
-        border: 2px solid rgba(255, 208, 0, 0.55);
+        padding: 35px 25px;
 
         border-radius: 28px;
 
-        padding: 35px 25px;
+        background: rgba(12, 21, 38, 0.97);
 
-        box-shadow: 0 25px 90px rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(255, 208, 0, 0.55);
 
-        animation: entradaNombre 0.8s ease;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.65);
+
+        animation: aparecerNombre 0.8s ease;
       }
 
-      @keyframes entradaNombre {
+      @keyframes aparecerNombre {
         from {
           opacity: 0;
 
-          transform: translateY(40px) scale(0.9);
+          transform: translateY(35px) scale(0.9);
         }
 
         to {
@@ -207,35 +206,27 @@
         }
       }
 
-      .nombre-logo {
-        width: 130px;
+      .nombre-fuego {
+        font-size: 60px;
 
-        height: 130px;
+        margin-bottom: 10px;
 
-        object-fit: contain;
-
-        margin-bottom: 20px;
-
-        animation: flotar 3s ease-in-out infinite;
+        animation: fuego 1.5s ease-in-out infinite;
       }
 
-      @keyframes flotar {
+      @keyframes fuego {
         0%,
         100% {
-          transform: translateY(0);
+          transform: scale(1);
         }
 
         50% {
-          transform: translateY(-10px);
+          transform: scale(1.12);
         }
       }
 
       .nombre-box h2 {
-        font-size: clamp(30px, 8vw, 48px);
-
-        font-weight: 900;
-
-        line-height: 1;
+        font-size: 30px;
 
         margin-bottom: 12px;
       }
@@ -245,51 +236,53 @@
       }
 
       .nombre-box p {
-        color: #d9deea;
+        color: #d9dfeb;
 
-        font-size: 17px;
+        line-height: 1.6;
 
-        line-height: 1.5;
-
-        margin-bottom: 24px;
+        margin-bottom: 22px;
       }
 
-      #nombre {
+      #nombreInput {
         width: 100%;
 
         padding: 16px;
 
-        border-radius: 15px;
-
         border: 2px solid rgba(255, 208, 0, 0.35);
 
-        background: rgba(255, 255, 255, 0.07);
-
-        color: white;
+        border-radius: 15px;
 
         outline: none;
 
-        font-size: 18px;
+        background: rgba(255, 255, 255, 0.08);
+
+        color: white;
 
         text-align: center;
 
-        margin-bottom: 14px;
+        font-size: 18px;
+
+        margin-bottom: 15px;
+
+        transition:
+          border 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
-      #nombre::placeholder {
-        color: #aab2c2;
-      }
-
-      #nombre:focus {
+      #nombreInput:focus {
         border-color: #ffd000;
 
         box-shadow: 0 0 20px rgba(255, 208, 0, 0.18);
       }
 
-      .btn-comenzar {
+      #nombreInput::placeholder {
+        color: #9ba5b7;
+      }
+
+      #entrar {
         width: 100%;
 
-        padding: 17px;
+        padding: 16px;
 
         border: none;
 
@@ -305,27 +298,17 @@
 
         cursor: pointer;
 
-        box-shadow: 0 10px 30px rgba(255, 174, 0, 0.3);
+        box-shadow: 0 10px 30px rgba(255, 174, 0, 0.28);
 
         transition:
           transform 0.2s ease,
           box-shadow 0.2s ease;
       }
 
-      .btn-comenzar:hover {
+      #entrar:hover {
         transform: translateY(-3px);
 
-        box-shadow: 0 14px 35px rgba(255, 174, 0, 0.45);
-      }
-
-      .error {
-        color: #ff7777 !important;
-
-        margin-top: 10px;
-
-        margin-bottom: 0 !important;
-
-        display: none;
+        box-shadow: 0 14px 35px rgba(255, 174, 0, 0.4);
       }
 
       /* =========================================
@@ -353,44 +336,14 @@
 
         box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
 
-        animation: aparecerCard 0.8s ease;
+        animation: entradaTarjeta 1s ease;
       }
 
-      @keyframes aparecerCard {
+      @keyframes entradaTarjeta {
         from {
           opacity: 0;
 
           transform: translateY(30px);
-        }
-
-        to {
-          opacity: 1;
-
-          transform: translateY(0);
-        }
-      }
-
-      /* =========================================
-       SALUDO
-       ========================================= */
-
-      .saludo {
-        color: #ffd000;
-
-        font-size: 20px;
-
-        font-weight: 900;
-
-        margin-bottom: 15px;
-
-        animation: aparecerTexto 0.8s ease;
-      }
-
-      @keyframes aparecerTexto {
-        from {
-          opacity: 0;
-
-          transform: translateY(15px);
         }
 
         to {
@@ -424,6 +377,17 @@
         animation: flotar 3s ease-in-out infinite;
       }
 
+      @keyframes flotar {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
       /* =========================================
        BADGE
        ========================================= */
@@ -447,17 +411,17 @@
 
         margin-bottom: 20px;
 
-        animation: pulso 2.5s infinite;
+        animation: pulsoBadge 2s ease-in-out infinite;
       }
 
-      @keyframes pulso {
+      @keyframes pulsoBadge {
         0%,
         100% {
-          transform: scale(1);
+          box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
         }
 
         50% {
-          transform: scale(1.04);
+          box-shadow: 0 8px 35px rgba(255, 193, 7, 0.55);
         }
       }
 
@@ -476,11 +440,27 @@
 
         margin-bottom: 16px;
 
-        animation: aparecerTexto 1s ease;
+        animation: aparecerTitulo 1s ease;
+      }
+
+      @keyframes aparecerTitulo {
+        from {
+          opacity: 0;
+
+          transform: scale(0.85);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: scale(1);
+        }
       }
 
       h1 .amarillo {
         color: #ffd000;
+
+        text-shadow: 0 0 25px rgba(255, 208, 0, 0.25);
       }
 
       /* =========================================
@@ -498,7 +478,7 @@
       }
 
       /* =========================================
-       VERSICULO
+       VERSÍCULO
        ========================================= */
 
       .verse {
@@ -512,7 +492,7 @@
 
         margin-bottom: 24px;
 
-        animation: aparecerTexto 1.2s ease;
+        animation: aparecerBloque 1s ease;
       }
 
       .verse strong {
@@ -553,8 +533,22 @@
         color: #ffd000;
       }
 
+      @keyframes aparecerBloque {
+        from {
+          opacity: 0;
+
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0);
+        }
+      }
+
       /* =========================================
-       INFORMACION
+       INFORMACIÓN
        ========================================= */
 
       .info {
@@ -584,7 +578,7 @@
       .info-box:hover {
         transform: translateY(-4px);
 
-        background: rgba(255, 208, 0, 0.1);
+        background: rgba(255, 208, 0, 0.09);
       }
 
       .info-box .yellow {
@@ -631,12 +625,8 @@
         cursor: pointer;
 
         transition:
-          transform 0.18s ease,
-          box-shadow 0.18s ease;
-      }
-
-      button:hover {
-        transform: translateY(-3px);
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
       }
 
       button:active {
@@ -657,10 +647,14 @@
         color: white;
       }
 
-      .btn-no-se {
-        background: linear-gradient(135deg, #555f73, #353d4d);
+      .btn-talvez {
+        background: linear-gradient(135deg, #5d6680, #41495d);
 
         color: white;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
       }
 
       /* =========================================
@@ -682,14 +676,14 @@
 
         font-size: 17px;
 
-        animation: aparecerRespuesta 0.4s ease;
+        animation: aparecerRespuesta 0.5s ease;
       }
 
       @keyframes aparecerRespuesta {
         from {
           opacity: 0;
 
-          transform: scale(0.95) translateY(15px);
+          transform: scale(0.92) translateY(15px);
         }
 
         to {
@@ -711,12 +705,8 @@
         color: #edf1f7;
       }
 
-      #respuesta strong {
-        color: #ffd000;
-      }
-
       /* =========================================
-       COMPARTIR
+       BOTÓN COMPARTIR
        ========================================= */
 
       .compartir {
@@ -724,19 +714,25 @@
 
         width: 100%;
 
-        margin-top: 14px;
+        margin-top: 15px;
 
         background: linear-gradient(135deg, #25d366, #128c7e);
 
         color: white;
 
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.22);
+
+        font-size: 17px;
 
         animation: aparecerRespuesta 0.5s ease;
       }
 
+      .compartir:hover {
+        box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+      }
+
       /* =========================================
-       BOTON VOLVER
+       BOTÓN VOLVER
        ========================================= */
 
       .volver {
@@ -770,7 +766,35 @@
       }
 
       /* =========================================
-       MOVIL
+       CORAZONES / EMOJIS
+       ========================================= */
+
+      .emoji-flotante {
+        position: fixed;
+
+        pointer-events: none;
+
+        z-index: 20;
+
+        animation: subirEmoji 2.5s ease-out forwards;
+      }
+
+      @keyframes subirEmoji {
+        0% {
+          opacity: 1;
+
+          transform: translateY(0) scale(1);
+        }
+
+        100% {
+          opacity: 0;
+
+          transform: translateY(-180px) scale(1.5);
+        }
+      }
+
+      /* =========================================
+       CELULARES
        ========================================= */
 
       @media (max-width: 600px) {
@@ -803,7 +827,11 @@
         }
 
         .nombre-box {
-          padding: 30px 18px;
+          padding: 30px 20px;
+        }
+
+        .nombre-box h2 {
+          font-size: 26px;
         }
       }
     </style>
@@ -816,27 +844,31 @@
 
     <section id="pantallaNombre">
       <div class="nombre-box">
-        <img src="logo.png" alt="Logo de la iglesia" class="nombre-logo" />
+        <div class="nombre-fuego">🔥</div>
 
-        <h2>¡HOLA! <span>🔥</span></h2>
+        <h2>
+          ¡Hola! 👋
+          <br />
+          <span>Jóvenes de Vanguardia</span>
+        </h2>
 
-        <p>Antes de abrir la invitación, queremos saber quién eres. 🙌</p>
+        <p>
+          Antes de abrir la invitación, queremos saber quién eres. 😊
+          <br /><br />
+          Escribe tu nombre para continuar.
+        </p>
 
         <input
           type="text"
-          id="nombre"
-          placeholder="Escribe tu nombre"
-          maxlength="40"
+          id="nombreInput"
+          placeholder="Escribe tu nombre..."
+          maxlength="60"
           autocomplete="name"
         />
 
-        <button class="btn-comenzar" onclick="comenzarInvitacion()">
+        <button id="entrar" onclick="entrarInvitacion()">
           🔥 ABRIR MI INVITACIÓN
         </button>
-
-        <p id="errorNombre" class="error">
-          Por favor escribe tu nombre para continuar.
-        </p>
       </div>
     </section>
 
@@ -845,25 +877,25 @@
        ========================================= -->
 
     <main class="card">
-      <!-- SALUDO PERSONALIZADO -->
-
-      <div id="saludo" class="saludo"></div>
-
-      <!-- LOGO -->
+      <!-- LOGO DE LA IGLESIA -->
 
       <img src="logo.png" alt="Logo de la iglesia" class="logo" />
 
-      <!-- BADGE -->
+      <!-- NOMBRE DEL MINISTERIO -->
 
       <div class="badge">🔥 MINISTERIO JÓVENES DE VANGUARDIA</div>
 
       <!-- TITULO -->
 
       <h1>
-        JÓVENES<br />
-
+        JÓVENES
+        <br />
         <span class="amarillo"> DE VANGUARDIA </span>
       </h1>
+
+      <!-- SALUDO PERSONALIZADO -->
+
+      <p id="saludo" class="subtitle"></p>
 
       <!-- INVITACIÓN -->
 
@@ -884,7 +916,8 @@
         semana, ven con un corazón dispuesto, porque juntos vamos a buscar a
         Dios, compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
 
-        <br /><br />
+        <br />
+        <br />
 
         <strong> ¡No te quedes en casa! Tu presencia hace falta. 🔥 </strong>
       </p>
@@ -894,19 +927,16 @@
       <section class="info">
         <div class="info-box">
           📅
-
           <span class="yellow"> ESTE SÁBADO </span>
         </div>
 
         <div class="info-box">
           🕓
-
           <span class="yellow"> 4:00 PM </span>
         </div>
 
         <div class="info-box">
           🔥
-
           <span class="yellow"> SERVICIO DE JÓVENES </span>
         </div>
       </section>
@@ -928,7 +958,7 @@
           😔 NO IRÉ
         </button>
 
-        <button class="btn-no-se" onclick="mostrarRespuesta('nose')">
+        <button class="btn-talvez" onclick="mostrarRespuesta('talvez')">
           🤔 TODAVÍA NO SÉ
         </button>
       </div>
@@ -966,92 +996,68 @@
 
     <script>
       /* =========================================
-       CONFIGURACIÓN FORMSPREE
-       ========================================= */
-
-      const FORMSPREE_URL = "https://formspree.io/f/xyegbgwy";
-
-      /* =========================================
        VARIABLES
        ========================================= */
 
       let nombreJoven = "";
 
-      let respuestaSeleccionada = "";
-
       /* =========================================
-       INICIO
+       ENTRAR A LA INVITACIÓN
        ========================================= */
 
-      document
-        .getElementById("nombre")
-        .addEventListener("keydown", function (event) {
-          if (event.key === "Enter") {
-            comenzarInvitacion();
-          }
-        });
+      function entrarInvitacion() {
+        const input = document.getElementById("nombreInput");
 
-      function comenzarInvitacion() {
-        const campo = document.getElementById("nombre");
+        const nombre = input.value.trim();
 
-        const error = document.getElementById("errorNombre");
+        if (nombre === "") {
+          input.style.borderColor = "#ff5252";
 
-        const nombre = campo.value.trim();
+          input.placeholder = "Por favor escribe tu nombre 😊";
 
-        if (!nombre) {
-          error.style.display = "block";
-
-          campo.focus();
+          input.focus();
 
           return;
         }
 
         nombreJoven = nombre;
 
-        error.style.display = "none";
-
         document.getElementById("saludo").innerHTML =
-          "🔥 ¡Bienvenido/a, " + escaparHTML(nombreJoven) + "!";
+          `Hola, <strong>${escapeHTML(nombreJoven)}</strong>... 👋❤️`;
 
         document.getElementById("pantallaNombre").classList.add("oculta");
 
-        window.scrollTo({
-          top: 0,
-
-          behavior: "smooth",
-        });
+        crearEmojis();
       }
 
       /* =========================================
-       PROTEGER TEXTO
+       ENTER EN EL NOMBRE
        ========================================= */
 
-      function escaparHTML(texto) {
-        const div = document.createElement("div");
-
-        div.textContent = texto;
-
-        return div.innerHTML;
-      }
+      document
+        .getElementById("nombreInput")
+        .addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            entrarInvitacion();
+          }
+        });
 
       /* =========================================
-       MOSTRAR RESPUESTA
+       RESPUESTAS
        ========================================= */
 
       function mostrarRespuesta(opcion) {
         const respuesta = document.getElementById("respuesta");
 
-        const compartir = document.getElementById("compartir");
-
         const volver = document.getElementById("volver");
 
-        respuestaSeleccionada = opcion;
+        const compartir = document.getElementById("compartir");
 
         if (opcion === "si") {
           respuesta.innerHTML = `
 
           <h2>
-            🔥 ¡ESO ES, ${escaparHTML(nombreJoven)}!
+            🔥 ¡ESO ES, ${escapeHTML(nombreJoven)}!
           </h2>
 
           <p>
@@ -1073,16 +1079,20 @@
           </p>
 
         `;
+
+          enviarRespuesta("¡IRÉ!");
+
+          crearEmojis();
         } else if (opcion === "no") {
           respuesta.innerHTML = `
 
           <h2>
-            😔 ¡PIÉNSALO!
+            😔 ¡PIÉNSALO, ${escapeHTML(nombreJoven)}!
           </h2>
 
           <p>
 
-            ¡Vamos, ${escaparHTML(nombreJoven)}!
+            ¡Vamos, joven!
 
             No dejes pasar esta oportunidad.
 
@@ -1090,6 +1100,10 @@
 
             Dios puede tener una palabra
             especial para ti este sábado.
+
+            <br><br>
+
+            Piénsalo bien...
 
             <br><br>
 
@@ -1106,13 +1120,13 @@
               🔥🙌
             </strong>
 
-            <br><br>
-
-            Piénsalo bien...
-
           </p>
 
         `;
+
+          enviarRespuesta("NO IRÉ");
+
+          crearEmojis();
         } else {
           respuesta.innerHTML = `
 
@@ -1122,7 +1136,7 @@
 
           <p>
 
-            Está bien, ${escaparHTML(nombreJoven)}.
+            Está bien, ${escapeHTML(nombreJoven)}. 😊
 
             <br><br>
 
@@ -1135,7 +1149,7 @@
 
             <br><br>
 
-            No tienes que decidirlo todo ahora.
+            Piénsalo bien...
 
             <br><br>
 
@@ -1144,89 +1158,81 @@
               🔥🙌
             </strong>
 
-            <br><br>
-
-            Piénsalo bien...
-
           </p>
 
         `;
+
+          enviarRespuesta("TODAVÍA NO SÉ");
+
+          crearEmojis();
         }
 
         respuesta.style.display = "block";
 
-        compartir.style.display = "block";
-
         volver.style.display = "block";
+
+        compartir.style.display = "block";
 
         respuesta.scrollIntoView({
           behavior: "smooth",
-
           block: "center",
         });
-
-        enviarRespuesta(opcion);
       }
 
       /* =========================================
        ENVIAR A FORMSPREE
        ========================================= */
 
-      async function enviarRespuesta(opcion) {
-        let textoRespuesta = "";
+      function enviarRespuesta(respuestaJoven) {
+        const datos = new FormData();
 
-        if (opcion === "si") {
-          textoRespuesta = "🙌 ¡IRÉ!";
-        } else if (opcion === "no") {
-          textoRespuesta = "😔 NO IRÉ";
-        } else {
-          textoRespuesta = "🤔 TODAVÍA NO SÉ";
-        }
+        datos.append("nombre", nombreJoven);
 
-        try {
-          await fetch(FORMSPREE_URL, {
-            method: "POST",
+        datos.append("respuesta", respuestaJoven);
 
-            headers: {
-              "Content-Type": "application/json",
+        datos.append("_subject", "🔥 Nueva respuesta - Jóvenes de Vanguardia");
 
-              Accept: "application/json",
-            },
+        datos.append("mensaje", `${nombreJoven} respondió: ${respuestaJoven}`);
 
-            body: JSON.stringify({
-              nombre: nombreJoven,
+        fetch("https://formspree.io/f/xyegbgwy", {
+          method: "POST",
 
-              respuesta: textoRespuesta,
+          body: datos,
 
-              fecha: new Date().toLocaleString("es-CO"),
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              console.log("No se pudo enviar la respuesta.");
+            }
+          })
 
-              asunto: "Respuesta - Jóvenes de Vanguardia",
-            }),
+          .catch(function (error) {
+            console.log("Error enviando respuesta:", error);
           });
-        } catch (error) {
-          console.log("No se pudo enviar la respuesta:", error);
-        }
       }
 
       /* =========================================
-       COMPARTIR WHATSAPP
+       COMPARTIR POR WHATSAPP
        ========================================= */
 
       function compartirWhatsApp() {
         const url = "https://jovenesdevanguardia.github.io/JV/";
 
-        const mensaje =
-          "🔥 Jóvenes de Vanguardia 🔥\n\n" +
-          "¡Este sábado tenemos una cita! 🙌\n\n" +
-          "Te invito al Servicio de Jóvenes.\n\n" +
-          "⏰ 4:00 PM\n\n" +
-          "¡No te quedes en casa! 🔥🙌\n\n" +
-          url;
+        const texto = `🔥 Jóvenes de Vanguardia 🔥
 
-        const whatsappURL =
-          "https://wa.me/?text=" + encodeURIComponent(mensaje);
+¡Este sábado tenemos una cita! 🙌
 
-        window.open(whatsappURL, "_blank");
+No te quedes en casa.
+¡Te esperamos! ❤️‍🔥
+
+${url}`;
+
+        const whatsapp = "https://wa.me/?text=" + encodeURIComponent(texto);
+
+        window.open(whatsapp, "_blank");
       }
 
       /* =========================================
@@ -1236,21 +1242,63 @@
       function volverInicio() {
         const respuesta = document.getElementById("respuesta");
 
-        const compartir = document.getElementById("compartir");
-
         const volver = document.getElementById("volver");
+
+        const compartir = document.getElementById("compartir");
 
         respuesta.style.display = "none";
 
-        compartir.style.display = "none";
-
         volver.style.display = "none";
+
+        compartir.style.display = "none";
 
         window.scrollTo({
           top: 0,
-
           behavior: "smooth",
         });
+      }
+
+      /* =========================================
+       EMOJIS ANIMADOS
+       ========================================= */
+
+      function crearEmojis() {
+        const emojis = ["🔥", "❤️", "🙌", "✨", "❤️‍🔥", "⭐"];
+
+        for (let i = 0; i < 12; i++) {
+          setTimeout(function () {
+            const emoji = document.createElement("div");
+
+            emoji.className = "emoji-flotante";
+
+            emoji.textContent =
+              emojis[Math.floor(Math.random() * emojis.length)];
+
+            emoji.style.left = Math.random() * 100 + "vw";
+
+            emoji.style.bottom = "10px";
+
+            emoji.style.fontSize = 20 + Math.random() * 20 + "px";
+
+            document.body.appendChild(emoji);
+
+            setTimeout(function () {
+              emoji.remove();
+            }, 2600);
+          }, i * 120);
+        }
+      }
+
+      /* =========================================
+       SEGURIDAD PARA MOSTRAR EL NOMBRE
+       ========================================= */
+
+      function escapeHTML(text) {
+        const div = document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
       }
     </script>
   </body>
