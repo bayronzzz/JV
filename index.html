@@ -2,19 +2,20 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Jóvenes de Vanguardia 🔥</title>
 
-    <!-- =========================
+    <!-- =========================================
        VISTA PREVIA AL COMPARTIR
-       ========================= -->
+       ========================================= -->
 
     <meta property="og:title" content="Jóvenes de Vanguardia 🔥" />
 
     <meta
       property="og:description"
-      content="¡Este sábado tenemos una cita! 🙌🔥 Ven al servicio de Jóvenes de Vanguardia."
+      content="¡Este sábado tenemos una cita! 🙌🔥 Servicio de Jóvenes de Vanguardia. ¡Te esperamos!"
     />
 
     <meta
@@ -44,6 +45,10 @@
     />
 
     <style>
+      /* =========================================
+       CONFIGURACIÓN GENERAL
+       ========================================= */
+
       * {
         margin: 0;
         padding: 0;
@@ -56,370 +61,469 @@
 
       body {
         min-height: 100vh;
+
         font-family: Arial, Helvetica, sans-serif;
+
         color: white;
+
         background:
           radial-gradient(
-            circle at 15% 10%,
+            circle at 20% 10%,
             rgba(255, 210, 0, 0.18),
             transparent 25%
           ),
           radial-gradient(
-            circle at 90% 80%,
-            rgba(255, 150, 0, 0.14),
+            circle at 80% 80%,
+            rgba(255, 170, 0, 0.12),
             transparent 30%
           ),
-          linear-gradient(145deg, #030711, #0c1729, #050914);
+          linear-gradient(145deg, #050b16, #101b30, #070d18);
+
         overflow-x: hidden;
       }
 
-      /* =========================
-       PARTICULAS
-       ========================= */
+      /* =========================================
+       ESTRELLAS
+       ========================================= */
 
-      .particles {
+      body::before {
+        content: "✦     ✧       ✦       ✧       ✦       ✧";
+
         position: fixed;
+
         inset: 0;
+
+        color: rgba(255, 255, 255, 0.2);
+
+        font-size: 22px;
+
+        line-height: 100px;
+
+        letter-spacing: 18px;
+
         pointer-events: none;
+
         overflow: hidden;
+
         z-index: 0;
       }
 
-      .particle {
-        position: absolute;
-        color: rgba(255, 208, 0, 0.7);
-        font-size: 16px;
-        animation: flotar linear infinite;
-      }
+      /* =========================================
+       PANTALLA DE BIENVENIDA
+       ========================================= */
 
-      @keyframes flotar {
-        from {
-          transform: translateY(110vh) rotate(0deg);
-          opacity: 0;
-        }
-
-        15% {
-          opacity: 1;
-        }
-
-        85% {
-          opacity: 1;
-        }
-
-        to {
-          transform: translateY(-15vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      /* =========================
-       PANTALLA DE ENTRADA
-       ========================= */
-
-      #entrada {
+      #bienvenida {
         position: fixed;
+
         inset: 0;
-        z-index: 100;
+
+        z-index: 9999;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 20px;
+
         background:
           radial-gradient(
             circle at center,
-            rgba(255, 208, 0, 0.14),
+            rgba(255, 208, 0, 0.12),
             transparent 35%
           ),
-          #040812;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
+          linear-gradient(145deg, #030711, #0b1528, #030711);
+
         transition:
-          opacity 0.7s ease,
-          visibility 0.7s ease;
+          opacity 0.8s ease,
+          visibility 0.8s ease;
       }
 
-      #entrada.ocultar {
+      #bienvenida.ocultar {
         opacity: 0;
+
         visibility: hidden;
+
+        pointer-events: none;
       }
 
-      .entrada-contenido {
+      .welcome-box {
         width: 100%;
+
         max-width: 500px;
+
         text-align: center;
-        animation: entrada 0.9s ease;
+
+        padding: 35px 25px 40px;
+
+        background: rgba(10, 18, 32, 0.95);
+
+        border: 2px solid rgba(255, 208, 0, 0.55);
+
+        border-radius: 30px;
+
+        box-shadow: 0 25px 90px rgba(0, 0, 0, 0.65);
+
+        animation: aparecer 0.8s ease;
       }
 
-      @keyframes entrada {
+      .welcome-fire {
+        font-size: 55px;
+
+        margin-bottom: 10px;
+
+        animation: fuego 1.2s infinite alternate;
+      }
+
+      @keyframes fuego {
         from {
-          opacity: 0;
-          transform: scale(0.8) translateY(30px);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1) translateY(0);
-        }
-      }
-
-      .entrada-logo {
-        width: 190px;
-        max-width: 70%;
-        height: 190px;
-        object-fit: contain;
-        margin-bottom: 25px;
-        filter: drop-shadow(0 0 30px rgba(255, 208, 0, 0.35));
-        animation: pulso 2s infinite;
-      }
-
-      @keyframes pulso {
-        0%,
-        100% {
           transform: scale(1);
         }
 
-        50% {
-          transform: scale(1.04);
+        to {
+          transform: scale(1.12);
         }
       }
 
-      .entrada-titulo {
-        font-size: clamp(40px, 12vw, 72px);
-        font-weight: 1000;
-        line-height: 0.9;
-        letter-spacing: -3px;
+      .welcome-box h1 {
+        font-size: clamp(36px, 9vw, 58px);
+
+        line-height: 1;
+
+        font-weight: 900;
+
+        margin-bottom: 15px;
+      }
+
+      .welcome-box h1 span {
+        color: #ffd000;
+      }
+
+      .welcome-text {
+        color: #dce3ef;
+
+        font-size: 18px;
+
+        line-height: 1.5;
+
+        margin-bottom: 25px;
+      }
+
+      .nombre-label {
+        display: block;
+
+        font-size: 17px;
+
+        font-weight: 800;
+
+        margin-bottom: 10px;
+      }
+
+      #nombre {
+        width: 100%;
+
+        padding: 17px 18px;
+
+        border-radius: 15px;
+
+        border: 2px solid rgba(255, 208, 0, 0.35);
+
+        background: rgba(255, 255, 255, 0.07);
+
+        color: white;
+
+        font-size: 18px;
+
+        text-align: center;
+
+        outline: none;
+
+        transition:
+          border 0.2s,
+          box-shadow 0.2s;
+      }
+
+      #nombre:focus {
+        border-color: #ffd000;
+
+        box-shadow: 0 0 20px rgba(255, 208, 0, 0.18);
+      }
+
+      #nombre::placeholder {
+        color: #8993a5;
+      }
+
+      #entrar {
+        width: 100%;
+
+        margin-top: 16px;
+
+        padding: 17px;
+
+        border: none;
+
+        border-radius: 16px;
+
+        background: linear-gradient(135deg, #ffd000, #ff9d00);
+
+        color: #111;
+
+        font-size: 19px;
+
+        font-weight: 900;
+
+        cursor: pointer;
+
+        box-shadow: 0 10px 30px rgba(255, 174, 0, 0.28);
+
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+
+      #entrar:hover {
+        transform: translateY(-2px);
+
+        box-shadow: 0 14px 35px rgba(255, 174, 0, 0.38);
+      }
+
+      #entrar:active {
+        transform: scale(0.97);
+      }
+
+      #errorNombre {
+        display: none;
+
+        margin-top: 12px;
+
+        color: #ff8585;
+
+        font-size: 14px;
+
+        font-weight: bold;
+      }
+
+      /* =========================================
+       CONTENIDO PRINCIPAL
+       ========================================= */
+
+      #contenido {
+        display: none;
+
+        position: relative;
+
+        z-index: 1;
+
+        min-height: 100vh;
+
+        justify-content: center;
+
+        padding: 25px 12px 45px;
+      }
+
+      #contenido.mostrar {
+        display: flex;
+
+        animation: aparecer 0.9s ease;
+      }
+
+      .card {
+        width: 100%;
+
+        max-width: 620px;
+
+        background: rgba(10, 18, 32, 0.96);
+
+        border: 2px solid rgba(255, 208, 0, 0.55);
+
+        border-radius: 28px;
+
+        padding: 30px 22px 35px;
+
+        text-align: center;
+
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
+
+        position: relative;
+      }
+
+      /* =========================================
+       SALUDO
+       ========================================= */
+
+      .saludo {
+        margin-bottom: 20px;
+
+        padding: 15px;
+
+        border-radius: 16px;
+
+        background: rgba(255, 208, 0, 0.08);
+
+        border: 1px solid rgba(255, 208, 0, 0.2);
+
+        animation: deslizar 0.8s ease;
+      }
+
+      .saludo small {
+        display: block;
+
+        color: #aeb8c8;
+
+        font-size: 13px;
+
+        margin-bottom: 5px;
+      }
+
+      .saludo strong {
+        color: #ffd000;
+
+        font-size: 25px;
+      }
+
+      /* =========================================
+       LOGO
+       ========================================= */
+
+      .logo {
+        width: 170px;
+
+        max-width: 75%;
+
+        max-height: 170px;
+
+        object-fit: contain;
+
+        display: block;
+
+        margin: 0 auto 20px;
+
+        border-radius: 18px;
+
+        filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.35));
+
+        animation: flotar 3s ease-in-out infinite;
+      }
+
+      @keyframes flotar {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-7px);
+        }
+      }
+
+      /* =========================================
+       BADGE
+       ========================================= */
+
+      .badge {
+        display: inline-block;
+
+        padding: 10px 18px;
+
+        border-radius: 40px;
+
+        background: linear-gradient(135deg, #ffe000, #ffad00);
+
+        color: #111;
+
+        font-size: 14px;
+
+        font-weight: 900;
+
+        box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+
+        margin-bottom: 20px;
+      }
+
+      /* =========================================
+       TITULO
+       ========================================= */
+
+      h2.titulo {
+        font-size: clamp(42px, 11vw, 76px);
+
+        line-height: 0.95;
+
+        font-weight: 900;
+
+        letter-spacing: -2px;
+
         margin-bottom: 18px;
       }
 
       .amarillo {
         color: #ffd000;
-        text-shadow: 0 0 25px rgba(255, 208, 0, 0.3);
       }
 
-      .entrada-texto {
-        color: #dce3ee;
-        font-size: 18px;
-        margin-bottom: 30px;
-      }
-
-      .btn-entrar {
-        border: none;
-        border-radius: 50px;
-        padding: 18px 35px;
-        font-size: 20px;
-        font-weight: 900;
-        background: linear-gradient(135deg, #ffe000, #ff9d00);
-        color: #111;
-        cursor: pointer;
-        box-shadow: 0 10px 35px rgba(255, 174, 0, 0.3);
-        animation: botonPulso 1.8s infinite;
-      }
-
-      @keyframes botonPulso {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-
-        50% {
-          transform: scale(1.06);
-        }
-      }
-
-      /* =========================
-       CONTENEDOR
-       ========================= */
-
-      .contenedor {
-        width: 100%;
-        max-width: 680px;
-        margin: auto;
-        padding: 25px 12px 50px;
-        position: relative;
-        z-index: 2;
-      }
-
-      /* =========================
-       TARJETA
-       ========================= */
-
-      .card {
-        background: rgba(7, 14, 27, 0.94);
-        border: 2px solid rgba(255, 208, 0, 0.45);
-        border-radius: 30px;
-        padding: 30px 22px 35px;
-        box-shadow:
-          0 25px 80px rgba(0, 0, 0, 0.6),
-          0 0 60px rgba(255, 190, 0, 0.05);
-        backdrop-filter: blur(10px);
-      }
-
-      /* =========================
-       LOGO
-       ========================= */
-
-      .logo {
-        width: 170px;
-        height: 170px;
-        max-width: 75%;
-        object-fit: contain;
-        display: block;
-        margin: 0 auto 20px;
-        filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
-        animation: aparecerLogo 1s ease;
-      }
-
-      @keyframes aparecerLogo {
-        from {
-          opacity: 0;
-          transform: scale(0.6) rotate(-8deg);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1) rotate(0);
-        }
-      }
-
-      /* =========================
-       BADGE
-       ========================= */
-
-      .badge {
-        display: inline-block;
-        padding: 10px 18px;
-        border-radius: 50px;
-        background: linear-gradient(135deg, #ffe000, #ffad00);
-        color: #111;
-        font-size: 13px;
-        font-weight: 1000;
-        margin-bottom: 20px;
-        box-shadow: 0 8px 25px rgba(255, 193, 7, 0.25);
-      }
-
-      /* =========================
-       TITULO
-       ========================= */
-
-      h1 {
-        font-size: clamp(45px, 12vw, 78px);
-        line-height: 0.88;
-        font-weight: 1000;
-        letter-spacing: -3px;
-        margin-bottom: 18px;
-        animation: tituloEntrada 1s ease;
-      }
-
-      @keyframes tituloEntrada {
-        from {
-          opacity: 0;
-          transform: translateY(25px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* =========================
+      /* =========================================
        SUBTITULO
-       ========================= */
+       ========================================= */
 
       .subtitle {
         font-size: clamp(20px, 5vw, 28px);
+
         line-height: 1.3;
-        font-weight: 800;
+
+        font-weight: 700;
+
         margin-bottom: 25px;
       }
 
-      /* =========================
-       CONTADOR
-       ========================= */
-
-      .contador-titulo {
-        color: #ffd000;
-        font-size: 13px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        margin-bottom: 10px;
-      }
-
-      .contador {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-        margin-bottom: 28px;
-      }
-
-      .tiempo {
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 208, 0, 0.18);
-        border-radius: 15px;
-        padding: 12px 5px;
-      }
-
-      .tiempo strong {
-        display: block;
-        color: #ffd000;
-        font-size: 25px;
-      }
-
-      .tiempo span {
-        color: #aeb8c8;
-        font-size: 10px;
-        font-weight: 800;
-      }
-
-      /* =========================
-       VERSICULO
-       ========================= */
+      /* =========================================
+       VERSÍCULO
+       ========================================= */
 
       .verse {
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.07);
+
         border-left: 5px solid #ffd000;
-        border-radius: 15px;
-        padding: 20px;
+
+        border-radius: 14px;
+
+        padding: 18px;
+
         margin-bottom: 25px;
+
+        animation: deslizar 0.9s ease;
       }
 
       .verse strong {
         display: block;
+
         color: #ffd000;
+
         font-size: 17px;
+
         line-height: 1.5;
       }
 
       .verse span {
         display: block;
-        color: #aaa;
+
         margin-top: 8px;
-        font-size: 14px;
+
+        color: #ddd;
+
+        font-size: 15px;
       }
 
-      /* =========================
-       BOTON VERSICULO
-       ========================= */
-
-      .btn-versiculo {
-        width: 100%;
-        background: rgba(255, 255, 255, 0.06);
-        color: #fff;
-        border: 1px solid rgba(255, 208, 0, 0.3);
-        border-radius: 15px;
-        padding: 15px;
-        font-size: 16px;
-        font-weight: 800;
-        cursor: pointer;
-        margin-bottom: 22px;
-      }
-
-      /* =========================
+      /* =========================================
        MENSAJE
-       ========================= */
+       ========================================= */
 
       .message {
         font-size: 18px;
+
         line-height: 1.65;
+
         color: #edf1f7;
+
         margin-bottom: 25px;
       }
 
@@ -427,127 +531,257 @@
         color: #ffd000;
       }
 
-      /* =========================
-       TARJETAS INFO
-       ========================= */
+      /* =========================================
+       INFORMACIÓN
+       ========================================= */
 
       .info {
         display: grid;
+
         gap: 12px;
-        margin: 25px 0 30px;
+
+        margin: 22px 0 28px;
       }
 
       .info-box {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 18px;
-        padding: 18px;
-        font-size: 18px;
-        font-weight: 900;
-        cursor: pointer;
-        transition: 0.25s ease;
+        background: rgba(255, 255, 255, 0.07);
+
+        border-radius: 16px;
+
+        padding: 17px;
+
+        font-size: 19px;
+
+        font-weight: 800;
+
+        transition:
+          transform 0.2s,
+          background 0.2s;
       }
 
-      .info-box:hover,
-      .info-box:active {
-        transform: translateY(-3px) scale(1.01);
-        border-color: rgba(255, 208, 0, 0.45);
-        background: rgba(255, 208, 0, 0.08);
+      .info-box:hover {
+        transform: translateY(-3px);
+
+        background: rgba(255, 208, 0, 0.1);
       }
 
       .yellow {
         color: #ffd000;
       }
 
-      .info-extra {
-        display: none;
-        color: #dce3ee;
-        font-size: 14px;
-        margin-top: 8px;
-        font-weight: normal;
-        line-height: 1.5;
-      }
-
-      .info-box.activo .info-extra {
-        display: block;
-        animation: aparecer 0.3s ease;
-      }
-
-      /* =========================
+      /* =========================================
        PREGUNTA
-       ========================= */
+       ========================================= */
 
       .question {
-        font-size: clamp(24px, 6vw, 34px);
-        font-weight: 1000;
-        margin-bottom: 8px;
+        font-size: 22px;
+
+        font-weight: 900;
+
+        margin-bottom: 10px;
       }
 
       .question-sub {
         color: #aeb8c8;
+
         margin-bottom: 20px;
       }
 
-      /* =========================
-       BOTONES
-       ========================= */
+      /* =========================================
+       FORMULARIO
+       ========================================= */
 
-      .buttons {
+      #respuestaForm {
+        margin-top: 10px;
+      }
+
+      .botones {
         display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
         gap: 12px;
       }
 
-      button {
-        font-family: inherit;
+      .respuesta-btn {
+        border: none;
+
+        border-radius: 16px;
+
+        padding: 18px 12px;
+
+        font-size: 18px;
+
+        font-weight: 900;
+
+        cursor: pointer;
+
         transition:
-          transform 0.15s ease,
-          box-shadow 0.15s ease;
+          transform 0.15s,
+          box-shadow 0.15s,
+          opacity 0.2s;
       }
 
-      button:active {
+      .respuesta-btn:hover {
+        transform: translateY(-3px);
+      }
+
+      .respuesta-btn:active {
         transform: scale(0.96);
       }
 
-      .btn-si,
-      .btn-talvez {
-        border: none;
-        border-radius: 17px;
-        padding: 18px 12px;
-        font-size: 18px;
-        font-weight: 1000;
-        cursor: pointer;
-      }
-
       .btn-si {
-        background: linear-gradient(135deg, #ffe000, #ff9d00);
+        background: linear-gradient(135deg, #ffd000, #ff9d00);
+
         color: #111;
-        box-shadow: 0 10px 25px rgba(255, 174, 0, 0.25);
+
+        box-shadow: 0 8px 22px rgba(255, 174, 0, 0.25);
       }
 
-      .btn-talvez {
-        background: #343c4c;
+      .btn-no {
+        background: #353d4d;
+
         color: white;
       }
 
-      /* =========================
-       RESPUESTA
-       ========================= */
+      .respuesta-btn:disabled {
+        opacity: 0.6;
 
-      #respuesta {
-        display: none;
-        margin-top: 20px;
-        padding: 24px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.07);
-        line-height: 1.65;
-        font-size: 17px;
-        animation: aparecer 0.4s ease;
+        cursor: wait;
       }
+
+      /* =========================================
+       RESULTADO
+       ========================================= */
+
+      #resultado {
+        display: none;
+
+        margin-top: 22px;
+
+        padding: 25px 20px;
+
+        border-radius: 20px;
+
+        background: rgba(255, 255, 255, 0.07);
+
+        animation: resultadoEntrada 0.7s ease;
+      }
+
+      #resultado h3 {
+        color: #ffd000;
+
+        font-size: 29px;
+
+        margin-bottom: 12px;
+      }
+
+      #resultado p {
+        color: #edf1f7;
+
+        font-size: 17px;
+
+        line-height: 1.6;
+      }
+
+      .emoji-grande {
+        font-size: 50px;
+
+        margin-bottom: 10px;
+
+        animation: rebote 1s infinite alternate;
+      }
+
+      @keyframes rebote {
+        from {
+          transform: translateY(0) rotate(-3deg);
+        }
+
+        to {
+          transform: translateY(-8px) rotate(3deg);
+        }
+      }
+
+      /* =========================================
+       ESTADO DE ENVÍO
+       ========================================= */
+
+      #estadoEnvio {
+        margin-top: 14px;
+
+        font-size: 14px;
+
+        color: #9faabd;
+      }
+
+      #estadoEnvio.exito {
+        color: #ffd000;
+
+        font-weight: bold;
+      }
+
+      #estadoEnvio.error {
+        color: #ff8585;
+
+        font-weight: bold;
+      }
+
+      /* =========================================
+       VOLVER
+       ========================================= */
+
+      #volver {
+        display: none;
+
+        margin: 15px auto 0;
+
+        background: transparent;
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+
+        color: #ddd;
+
+        padding: 10px 18px;
+
+        border-radius: 12px;
+
+        cursor: pointer;
+      }
+
+      /* =========================================
+       FOOTER
+       ========================================= */
+
+      .footer {
+        margin-top: 30px;
+
+        color: #9faabd;
+
+        font-size: 13px;
+
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       ANIMACIONES
+       ========================================= */
 
       @keyframes aparecer {
         from {
           opacity: 0;
-          transform: translateY(15px);
+          transform: scale(0.96);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes deslizar {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
 
         to {
@@ -556,151 +790,142 @@
         }
       }
 
-      #respuesta h2 {
-        color: #ffd000;
-        font-size: 28px;
-        margin-bottom: 10px;
+      @keyframes resultadoEntrada {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
 
-      #respuesta strong {
-        color: #ffd000;
-      }
-
-      /* =========================
-       COMPARTIR
-       ========================= */
-
-      .compartir {
-        display: none;
-        margin-top: 15px;
-        width: 100%;
-        border: none;
-        border-radius: 16px;
-        padding: 16px;
-        background: #25d366;
-        color: white;
-        font-size: 17px;
-        font-weight: 900;
-        cursor: pointer;
-      }
-
-      /* =========================
-       VOLVER
-       ========================= */
-
-      .volver {
-        display: none;
-        margin: 14px auto 0;
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        color: #ddd;
-        padding: 10px 18px;
-        border-radius: 12px;
-        cursor: pointer;
-      }
-
-      /* =========================
-       FOOTER
-       ========================= */
-
-      .footer {
-        margin-top: 28px;
-        color: #8e9aac;
-        font-size: 13px;
-        line-height: 1.5;
-      }
-
-      /* =========================
-       CELEBRACION
-       ========================= */
+      /* =========================================
+       CONFETI
+       ========================================= */
 
       .confeti {
         position: fixed;
+
         top: -20px;
-        z-index: 200;
+
+        width: 9px;
+
+        height: 15px;
+
+        z-index: 10000;
+
         pointer-events: none;
+
         animation: caer 3s linear forwards;
       }
 
       @keyframes caer {
         to {
           transform: translateY(110vh) rotate(720deg);
+
           opacity: 0;
         }
       }
 
-      /* =========================
-       RESPONSIVE
-       ========================= */
+      /* =========================================
+       CELULARES
+       ========================================= */
 
       @media (max-width: 480px) {
-        .contenedor {
+        #contenido {
           padding: 10px 7px 30px;
         }
 
         .card {
-          border-radius: 23px;
-          padding: 25px 15px 30px;
+          border-radius: 22px;
+
+          padding: 24px 15px 30px;
         }
 
         .logo {
           width: 145px;
-          height: 145px;
+
+          max-height: 145px;
         }
 
-        .contador {
-          gap: 5px;
-        }
-
-        .tiempo strong {
-          font-size: 21px;
-        }
-
-        .tiempo span {
-          font-size: 9px;
+        .botones {
+          grid-template-columns: 1fr;
         }
 
         .message {
           font-size: 17px;
+        }
+
+        .info-box {
+          font-size: 17px;
+        }
+
+        .welcome-box {
+          padding: 30px 18px 32px;
         }
       }
     </style>
   </head>
 
   <body>
-    <!-- =========================
-       PANTALLA DE ENTRADA
-       ========================= -->
+    <!-- =========================================
+       PANTALLA INICIAL
+       ========================================= -->
 
-    <section id="entrada">
-      <div class="entrada-contenido">
-        <img src="logo.png" alt="Logo de la iglesia" class="entrada-logo" />
+    <section id="bienvenida">
+      <div class="welcome-box">
+        <div class="welcome-fire">🔥</div>
 
-        <div class="entrada-titulo">
+        <h1>
           JÓVENES
           <br />
-          <span class="amarillo">DE VANGUARDIA</span>
-        </div>
+          <span>DE VANGUARDIA</span>
+        </h1>
 
-        <p class="entrada-texto">🔥 ¿Estás listo para lo que viene?</p>
+        <p class="welcome-text">
+          Tenemos una invitación especial para ti. 🙌
 
-        <button class="btn-entrar" onclick="entrar()">🔥 ¡ENTRAR!</button>
+          <br />
+
+          Pero antes...
+        </p>
+
+        <label class="nombre-label" for="nombre"> ¿Cómo te llamas? </label>
+
+        <input
+          id="nombre"
+          type="text"
+          placeholder="Escribe tu nombre"
+          maxlength="40"
+          autocomplete="name"
+        />
+
+        <button id="entrar" type="button" onclick="entrarInvitacion()">
+          🔥 ENTRAR A LA INVITACIÓN
+        </button>
+
+        <div id="errorNombre">Por favor escribe tu nombre 🙌</div>
       </div>
     </section>
 
-    <!-- =========================
-       PARTICULAS
-       ========================= -->
+    <!-- =========================================
+       CONTENIDO PRINCIPAL
+       ========================================= -->
 
-    <div class="particles" id="particles"></div>
+    <main id="contenido">
+      <div class="card">
+        <!-- SALUDO -->
 
-    <!-- =========================
-       CONTENIDO
-       ========================= -->
+        <div class="saludo">
+          <small> ¡NOS ALEGRA TENERTE AQUÍ! </small>
 
-    <main class="contenedor">
-      <section class="card">
-        <!-- LOGO -->
+          <strong id="saludoNombre"> 🔥 </strong>
+        </div>
+
+        <!-- LOGO DE LA IGLESIA -->
 
         <img src="logo.png" alt="Logo de la iglesia" class="logo" />
 
@@ -710,43 +935,18 @@
 
         <!-- TITULO -->
 
-        <h1>
+        <h2 class="titulo">
           JÓVENES
           <br />
-          <span class="amarillo">DE VANGUARDIA</span>
-        </h1>
 
-        <!-- SUBTITULO -->
+          <span class="amarillo"> DE VANGUARDIA </span>
+        </h2>
+
+        <!-- INVITACIÓN -->
 
         <p class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</p>
 
-        <!-- CONTADOR -->
-
-        <div class="contador-titulo">⏰ CUENTA REGRESIVA</div>
-
-        <div class="contador">
-          <div class="tiempo">
-            <strong id="dias">00</strong>
-            <span>DÍAS</span>
-          </div>
-
-          <div class="tiempo">
-            <strong id="horas">00</strong>
-            <span>HORAS</span>
-          </div>
-
-          <div class="tiempo">
-            <strong id="minutos">00</strong>
-            <span>MIN</span>
-          </div>
-
-          <div class="tiempo">
-            <strong id="segundos">00</strong>
-            <span>SEG</span>
-          </div>
-        </div>
-
-        <!-- VERSICULO -->
+        <!-- VERSÍCULO -->
 
         <div class="verse">
           <strong> “Nadie tenga en poco tu juventud...” </strong>
@@ -754,100 +954,119 @@
           <span> 1 Timoteo 4:12 </span>
         </div>
 
-        <button class="btn-versiculo" onclick="mostrarVersiculo()">
-          👀 TOCA PARA DESCUBRIR ALGO
-        </button>
-
-        <div
-          id="versiculoSorpresa"
-          style="
-            display: none;
-            margin-bottom: 25px;
-            color: #ffd000;
-            font-weight: 800;
-            line-height: 1.6;
-          "
-        >
-          🔥 Tu juventud no es un obstáculo.
-          <br />
-          ¡Es una oportunidad para hacer cosas grandes para Dios! 🙌
-        </div>
-
         <!-- MENSAJE -->
 
         <p class="message">
           Dios tiene algo especial preparado para ti. No importa cómo haya sido
-          tu semana, ven con un corazón dispuesto. Juntos vamos a buscar a Dios,
-          compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
+          tu semana, ven con un corazón dispuesto, porque juntos vamos a buscar
+          a Dios, compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
 
-          <br /><br />
+          <br />
+          <br />
 
           <strong> ¡No te quedes en casa! Tu presencia hace falta. 🔥 </strong>
         </p>
 
-        <!-- INFORMACION -->
+        <!-- INFORMACIÓN -->
 
         <section class="info">
-          <div class="info-box" onclick="toggleInfo(this)">
+          <div class="info-box">
             📅
+
             <span class="yellow"> ESTE SÁBADO </span>
-
-            <div class="info-extra">
-              🔥 Prepárate porque tendremos una tarde especial.
-            </div>
           </div>
 
-          <div class="info-box" onclick="toggleInfo(this)">
+          <div class="info-box">
             🕓
-            <span class="yellow"> 4:00 PM </span>
 
-            <div class="info-extra">⏰ Trata de llegar unos minutos antes.</div>
+            <span class="yellow"> 4:00 PM </span>
           </div>
 
-          <div class="info-box" onclick="toggleInfo(this)">
+          <div class="info-box">
             🔥
-            <span class="yellow"> SERVICIO DE JÓVENES </span>
 
-            <div class="info-extra">
-              🙌 Ven preparado para adorar, compartir y disfrutar.
-            </div>
+            <span class="yellow"> SERVICIO DE JÓVENES </span>
           </div>
         </section>
 
         <!-- PREGUNTA -->
 
-        <p class="question">¿VAS A VENIR? 👀🔥</p>
+        <p class="question">
+          <span id="preguntaNombre"> ¿Vas a estar </span>
 
-        <p class="question-sub">
-          Seamos sinceros... queremos saber si contamos contigo. 😎
+          con nosotros? 🙌
         </p>
 
-        <!-- BOTONES -->
+        <p class="question-sub">Queremos saber si contamos contigo.</p>
 
-        <div class="buttons">
-          <button class="btn-si" onclick="mostrarRespuesta('si')">
-            🙌🔥 ¡CLARO QUE SÍ!
-          </button>
+        <!-- =========================================
+           FORMULARIO FORMSPREE
+           ========================================= -->
 
-          <button class="btn-talvez" onclick="mostrarRespuesta('talvez')">
-            🤔 TODAVÍA NO SÉ
-          </button>
+        <form
+          id="respuestaForm"
+          action="https://formspree.io/f/xyegbgwy"
+          method="POST"
+        >
+          <!-- NOMBRE -->
+
+          <input type="hidden" id="nombreForm" name="nombre" />
+
+          <!-- RESPUESTA -->
+
+          <input type="hidden" id="respuestaFormCampo" name="respuesta" />
+
+          <!-- ASUNTO -->
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="🔥 Nueva respuesta - Jóvenes de Vanguardia"
+          />
+
+          <!-- ORIGEN -->
+
+          <input
+            type="hidden"
+            name="pagina"
+            value="Invitación Jóvenes de Vanguardia"
+          />
+
+          <div class="botones">
+            <button
+              type="button"
+              class="respuesta-btn btn-si"
+              onclick="enviarRespuesta('¡IRÉ! 🙌🔥')"
+            >
+              🙌 ¡IRÉ!
+            </button>
+
+            <button
+              type="button"
+              class="respuesta-btn btn-no"
+              onclick="enviarRespuesta('NO PODRÉ IR 😔')"
+            >
+              😔 NO PODRÉ IR
+            </button>
+          </div>
+
+          <div id="estadoEnvio"></div>
+        </form>
+
+        <!-- RESULTADO -->
+
+        <div id="resultado">
+          <div class="emoji-grande" id="emojiResultado">🔥</div>
+
+          <h3 id="tituloResultado">¡ESO ES!</h3>
+
+          <p id="textoResultado"></p>
         </div>
-
-        <!-- RESPUESTA -->
-
-        <div id="respuesta"></div>
-
-        <!-- WHATSAPP -->
-
-        <button id="compartir" class="compartir" onclick="compartirWhatsApp()">
-          📲 COMPARTIR CON MIS AMIGOS
-        </button>
 
         <!-- VOLVER -->
 
-        <button id="volver" class="volver" onclick="volverInicio()">
-          ← Volver
+        <button id="volver" type="button" onclick="volverRespuesta()">
+          ← Cambiar mi respuesta
         </button>
 
         <!-- FOOTER -->
@@ -859,308 +1078,254 @@
 
           Un lugar para crecer, servir y buscar a Dios.
         </div>
-      </section>
+      </div>
     </main>
 
-    <!-- =========================
+    <!-- =========================================
        JAVASCRIPT
-       ========================= -->
+       ========================================= -->
 
     <script>
-      /* =========================
-       ENTRADA
-       ========================= */
+      /* =========================================
+       VARIABLES
+       ========================================= */
 
-      function entrar() {
-        const entrada = document.getElementById("entrada");
+      let nombreJoven = "";
 
-        entrada.classList.add("ocultar");
+      /* =========================================
+       ENTRAR A LA INVITACIÓN
+       ========================================= */
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
+      function entrarInvitacion() {
+        const campoNombre = document.getElementById("nombre");
+
+        const error = document.getElementById("errorNombre");
+
+        const nombre = campoNombre.value.trim();
+
+        if (!nombre) {
+          error.style.display = "block";
+
+          campoNombre.focus();
+
+          return;
+        }
+
+        error.style.display = "none";
+
+        nombreJoven = nombre;
+
+        /* Mostrar nombre */
+
+        document.getElementById("saludoNombre").textContent =
+          "¡Hola, " + nombreJoven + "! 🔥";
+
+        document.getElementById("preguntaNombre").textContent =
+          nombreJoven + ", ¿vas a estar";
+
+        /* Guardar nombre para Formspree */
+
+        document.getElementById("nombreForm").value = nombreJoven;
+
+        /* Ocultar bienvenida */
+
+        document.getElementById("bienvenida").classList.add("ocultar");
+
+        /* Mostrar invitación */
+
+        setTimeout(function () {
+          document.getElementById("contenido").classList.add("mostrar");
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }, 500);
+      }
+
+      /* =========================================
+       ENTER EN EL CAMPO
+       ========================================= */
+
+      document
+        .getElementById("nombre")
+        .addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            entrarInvitacion();
+          }
         });
-      }
 
-      /* =========================
-       PARTICULAS
-       ========================= */
+      /* =========================================
+       ENVIAR RESPUESTA
+       ========================================= */
 
-      function crearParticulas() {
-        const contenedor = document.getElementById("particles");
+      async function enviarRespuesta(respuesta) {
+        const botones = document.querySelectorAll(".respuesta-btn");
 
-        const simbolos = ["✦", "✧", "🔥", "✨", "•"];
+        const estado = document.getElementById("estadoEnvio");
 
-        for (let i = 0; i < 35; i++) {
-          const particle = document.createElement("div");
+        /* Seguridad */
 
-          particle.className = "particle";
+        if (!nombreJoven) {
+          return;
+        }
 
-          particle.textContent =
-            simbolos[Math.floor(Math.random() * simbolos.length)];
+        /* Desactivar botones */
 
-          particle.style.left = Math.random() * 100 + "%";
+        botones.forEach(function (btn) {
+          btn.disabled = true;
+        });
 
-          particle.style.animationDuration = 5 + Math.random() * 8 + "s";
+        estado.textContent = "Enviando tu respuesta... 🔥";
 
-          particle.style.animationDelay = Math.random() * 8 + "s";
+        estado.className = "";
 
-          particle.style.fontSize = 8 + Math.random() * 15 + "px";
+        /* Guardar respuesta */
 
-          contenedor.appendChild(particle);
+        document.getElementById("respuestaFormCampo").value = respuesta;
+
+        const formulario = document.getElementById("respuestaForm");
+
+        try {
+          const datos = new FormData(formulario);
+
+          const response = await fetch(formulario.action, {
+            method: "POST",
+
+            body: datos,
+
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (response.ok) {
+            estado.textContent = "¡Respuesta enviada correctamente! 🔥";
+
+            estado.className = "exito";
+
+            mostrarResultado(respuesta);
+          } else {
+            throw new Error("No se pudo enviar");
+          }
+        } catch (error) {
+          console.error(error);
+
+          estado.textContent =
+            "No pudimos enviar la respuesta. Revisa tu conexión e inténtalo otra vez.";
+
+          estado.className = "error";
+
+          botones.forEach(function (btn) {
+            btn.disabled = false;
+          });
         }
       }
 
-      crearParticulas();
+      /* =========================================
+       MOSTRAR RESULTADO
+       ========================================= */
 
-      /* =========================
-       CONTADOR
-       ========================= */
+      function mostrarResultado(respuesta) {
+        const resultado = document.getElementById("resultado");
 
-      function actualizarContador() {
-        const ahora = new Date();
+        const emoji = document.getElementById("emojiResultado");
 
-        let objetivo = new Date();
+        const titulo = document.getElementById("tituloResultado");
 
-        /*
-        Busca el próximo sábado
-        a las 4:00 PM.
-      */
+        const texto = document.getElementById("textoResultado");
 
-        let dia = objetivo.getDay();
+        if (respuesta.includes("IRÉ")) {
+          emoji.textContent = "🎉🔥🙌";
 
-        let diferencia = (6 - dia + 7) % 7;
+          titulo.textContent = "¡ESO ES, " + nombreJoven.toUpperCase() + "!";
 
-        objetivo.setDate(objetivo.getDate() + diferencia);
+          texto.innerHTML =
+            "¡Nos alegra muchísimo saber que vienes!" +
+            "<br><br>" +
+            "Prepárate para vivir un tiempo " +
+            "especial en la presencia de Dios." +
+            "<br><br>" +
+            "<strong>¡Te esperamos este sábado " +
+            "a las 4:00 PM! ❤️‍🔥</strong>";
 
-        objetivo.setHours(16, 0, 0, 0);
-
-        /*
-        Si ya pasó el sábado de esta semana,
-        apunta al próximo sábado.
-      */
-
-        if (objetivo <= ahora) {
-          objetivo.setDate(objetivo.getDate() + 7);
-        }
-
-        const diferenciaTiempo = objetivo - ahora;
-
-        const dias = Math.floor(diferenciaTiempo / (1000 * 60 * 60 * 24));
-
-        const horas = Math.floor((diferenciaTiempo / (1000 * 60 * 60)) % 24);
-
-        const minutos = Math.floor((diferenciaTiempo / (1000 * 60)) % 60);
-
-        const segundos = Math.floor((diferenciaTiempo / 1000) % 60);
-
-        document.getElementById("dias").textContent = String(dias).padStart(
-          2,
-          "0",
-        );
-
-        document.getElementById("horas").textContent = String(horas).padStart(
-          2,
-          "0",
-        );
-
-        document.getElementById("minutos").textContent = String(
-          minutos,
-        ).padStart(2, "0");
-
-        document.getElementById("segundos").textContent = String(
-          segundos,
-        ).padStart(2, "0");
-      }
-
-      actualizarContador();
-
-      setInterval(actualizarContador, 1000);
-
-      /* =========================
-       VERSICULO SORPRESA
-       ========================= */
-
-      function mostrarVersiculo() {
-        const elemento = document.getElementById("versiculoSorpresa");
-
-        if (elemento.style.display === "none") {
-          elemento.style.display = "block";
+          lanzarConfeti();
         } else {
-          elemento.style.display = "none";
-        }
-      }
+          emoji.textContent = "😔❤️";
 
-      /* =========================
-       TARJETAS INFO
-       ========================= */
+          titulo.textContent =
+            "¡TE VAMOS A EXTRAÑAR, " + nombreJoven.toUpperCase() + "!";
 
-      function toggleInfo(elemento) {
-        elemento.classList.toggle("activo");
-      }
-
-      /* =========================
-       RESPUESTAS
-       ========================= */
-
-      function mostrarRespuesta(opcion) {
-        const respuesta = document.getElementById("respuesta");
-
-        const volver = document.getElementById("volver");
-
-        const compartir = document.getElementById("compartir");
-
-        if (opcion === "si") {
-          respuesta.innerHTML = `
-
-          <h2>
-            🎉🔥 ¡ESO ES! 🔥🎉
-          </h2>
-
-          <p>
-
-            ¡Sabíamos que eras de Vanguardia! 😎
-
-            <br><br>
-
-            Ya estás oficialmente en
-            <strong>modo joven de Vanguardia.</strong>
-
-            <br><br>
-
-            Prepárate para vivir un tiempo
-            increíble en la presencia de Dios.
-
-            <br><br>
-
-            <strong>
-              ¡TE ESPERAMOS ESTE SÁBADO
-              A LAS 4:00 PM! 🙌❤️‍🔥
-            </strong>
-
-          </p>
-
-        `;
-
-          celebrar();
-        } else {
-          respuesta.innerHTML = `
-
-          <h2>
-            👀 ¿SEGURO?
-          </h2>
-
-          <p>
-
-            ¡Vamos, joven! 😂
-
-            <br><br>
-
-            Mira que después no digas:
-
-            <br><br>
-
-            <strong>
-              “¡AY, POR QUÉ NO FUI!” 😭😂
-            </strong>
-
-            <br><br>
-
-            Dios puede tener una palabra
-            especial para ti este sábado.
-
-            <br><br>
-
-            Piénsalo bien...
-
-            <br><br>
-
-            <strong>
-              🔥 ¡Todavía estás a tiempo!
-            </strong>
-
-          </p>
-
-        `;
+          texto.innerHTML =
+            "Entendemos que quizá no puedas venir." +
+            "<br><br>" +
+            "Pero si tus planes cambian, " +
+            "las puertas están abiertas para ti." +
+            "<br><br>" +
+            "<strong>¡Esperamos verte pronto! 🔥🙌</strong>";
         }
 
-        respuesta.style.display = "block";
+        resultado.style.display = "block";
 
-        volver.style.display = "block";
+        document.getElementById("volver").style.display = "block";
 
-        compartir.style.display = "block";
-
-        respuesta.scrollIntoView({
+        resultado.scrollIntoView({
           behavior: "smooth",
           block: "center",
         });
       }
 
-      /* =========================
+      /* =========================================
+       CAMBIAR RESPUESTA
+       ========================================= */
+
+      function volverRespuesta() {
+        document.getElementById("resultado").style.display = "none";
+
+        document.getElementById("volver").style.display = "none";
+
+        document.getElementById("estadoEnvio").textContent = "";
+
+        document.querySelectorAll(".respuesta-btn").forEach(function (btn) {
+          btn.disabled = false;
+        });
+
+        document.getElementById("respuestaForm").scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+
+      /* =========================================
        CONFETI
-       ========================= */
+       ========================================= */
 
-      function celebrar() {
-        const emojis = ["🔥", "🎉", "🙌", "✨", "❤️", "⭐", "💥"];
+      function lanzarConfeti() {
+        const cantidad = 70;
 
-        for (let i = 0; i < 70; i++) {
+        for (let i = 0; i < cantidad; i++) {
           const confeti = document.createElement("div");
 
           confeti.className = "confeti";
 
-          confeti.textContent =
-            emojis[Math.floor(Math.random() * emojis.length)];
-
           confeti.style.left = Math.random() * 100 + "vw";
 
-          confeti.style.fontSize = 14 + Math.random() * 20 + "px";
+          confeti.style.animationDelay = Math.random() * 1.2 + "s";
 
-          confeti.style.animationDuration = 2 + Math.random() * 2 + "s";
-
-          confeti.style.animationDelay = Math.random() * 0.8 + "s";
+          confeti.style.background = [
+            "#ffd000",
+            "#ff9d00",
+            "#ffffff",
+            "#ff5f5f",
+            "#5fd4ff",
+          ][Math.floor(Math.random() * 5)];
 
           document.body.appendChild(confeti);
 
-          setTimeout(() => {
+          setTimeout(function () {
             confeti.remove();
           }, 4500);
         }
-      }
-
-      /* =========================
-       WHATSAPP
-       ========================= */
-
-      function compartirWhatsApp() {
-        const texto =
-          "🔥 Jóvenes de Vanguardia 🔥\n\n" +
-          "¡Este sábado tenemos una cita! 🙌\n\n" +
-          "🕓 4:00 PM\n" +
-          "🔥 Servicio de Jóvenes\n\n" +
-          "¡No te quedes en casa! ❤️‍🔥\n\n" +
-          "👉 " +
-          window.location.href;
-
-        const url = "https://wa.me/?text=" + encodeURIComponent(texto);
-
-        window.open(url, "_blank");
-      }
-
-      /* =========================
-       VOLVER
-       ========================= */
-
-      function volverInicio() {
-        document.getElementById("respuesta").style.display = "none";
-
-        document.getElementById("volver").style.display = "none";
-
-        document.getElementById("compartir").style.display = "none";
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
       }
     </script>
   </body>
