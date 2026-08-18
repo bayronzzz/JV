@@ -20,7 +20,7 @@
 
     <meta
       property="og:image"
-      content="https://jovenesdevanguardia.github.io/JV/img2.JPG"
+      content="https://jovenesdevanguardia.github.io/JV/IMG2.jpg"
     />
 
     <meta
@@ -41,10 +41,14 @@
 
     <meta
       name="twitter:image"
-      content="https://jovenesdevanguardia.github.io/JV/img2.JPG"
+      content="https://jovenesdevanguardia.github.io/JV/IMG2.jpg"
     />
 
     <style>
+      /* ================================
+       CONFIGURACIÓN GENERAL
+       ================================ */
+
       * {
         margin: 0;
         padding: 0;
@@ -83,7 +87,9 @@
         overflow-x: hidden;
       }
 
-      /* ESTRELLAS */
+      /* ================================
+       ESTRELLAS DE FONDO
+       ================================ */
 
       body::before {
         content: "✦     ✧       ✦       ✧     ✦     ✧       ✦";
@@ -111,7 +117,9 @@
         z-index: 0;
       }
 
-      /* TARJETA */
+      /* ================================
+       TARJETA PRINCIPAL
+       ================================ */
 
       .card {
         width: 100%;
@@ -134,7 +142,9 @@
         box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
       }
 
-      /* LOGO */
+      /* ================================
+       LOGO DE LA IGLESIA
+       ================================ */
 
       .logo {
         width: 170px;
@@ -154,7 +164,9 @@
         filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.35));
       }
 
-      /* ETIQUETA */
+      /* ================================
+       ETIQUETA
+       ================================ */
 
       .badge {
         display: inline-block;
@@ -176,7 +188,9 @@
         margin-bottom: 20px;
       }
 
-      /* TITULO */
+      /* ================================
+       TITULO
+       ================================ */
 
       h1 {
         font-size: clamp(42px, 11vw, 76px);
@@ -194,7 +208,9 @@
         color: #ffd000;
       }
 
-      /* SUBTITULO */
+      /* ================================
+       SUBTITULO
+       ================================ */
 
       .subtitle {
         font-size: clamp(20px, 5vw, 28px);
@@ -206,7 +222,9 @@
         margin-bottom: 22px;
       }
 
-      /* VERSICULO */
+      /* ================================
+       VERSÍCULO
+       ================================ */
 
       .verse {
         background: rgba(255, 255, 255, 0.07);
@@ -240,7 +258,9 @@
         font-size: 15px;
       }
 
-      /* MENSAJE */
+      /* ================================
+       MENSAJE
+       ================================ */
 
       .message {
         font-size: 18px;
@@ -256,7 +276,9 @@
         color: #ffd000;
       }
 
-      /* INFORMACION */
+      /* ================================
+       INFORMACIÓN
+       ================================ */
 
       .info {
         display: grid;
@@ -282,7 +304,9 @@
         color: #ffd000;
       }
 
-      /* PREGUNTA */
+      /* ================================
+       PREGUNTA
+       ================================ */
 
       .question {
         font-size: 21px;
@@ -292,7 +316,9 @@
         margin-bottom: 18px;
       }
 
-      /* BOTONES */
+      /* ================================
+       BOTONES
+       ================================ */
 
       .buttons {
         display: grid;
@@ -340,7 +366,9 @@
         color: white;
       }
 
-      /* RESPUESTA */
+      /* ================================
+       RESPUESTA
+       ================================ */
 
       #respuesta {
         display: none;
@@ -363,11 +391,13 @@
       @keyframes aparecer {
         from {
           opacity: 0;
+
           transform: translateY(10px);
         }
 
         to {
           opacity: 1;
+
           transform: translateY(0);
         }
       }
@@ -384,7 +414,9 @@
         color: #edf1f7;
       }
 
-      /* BOTON VOLVER */
+      /* ================================
+       BOTÓN VOLVER
+       ================================ */
 
       .volver {
         display: none;
@@ -402,7 +434,9 @@
         font-size: 14px;
       }
 
-      /* PIE */
+      /* ================================
+       PIE
+       ================================ */
 
       .footer {
         margin-top: 28px;
@@ -414,7 +448,9 @@
         line-height: 1.5;
       }
 
-      /* CELULAR */
+      /* ================================
+       CELULARES
+       ================================ */
 
       @media (max-width: 480px) {
         body {
@@ -452,20 +488,24 @@
     <main class="card">
       <!-- =========================================
          LOGO DE LA IGLESIA
-
+         
          Archivo:
          logo.png
-
+         
          Debe estar junto a index.html
          ========================================= -->
 
-      <img src="logo.png" alt="Logo" class="logo" />
+      <img src="logo.png" alt="Logo de la iglesia" class="logo" />
 
-      <!-- NOMBRE DEL MINISTERIO -->
+      <!-- =========================================
+         NOMBRE DEL MINISTERIO
+         ========================================= -->
 
       <div class="badge">🔥 MINISTERIO JÓVENES DE VANGUARDIA</div>
 
-      <!-- TITULO -->
+      <!-- =========================================
+         TITULO
+         ========================================= -->
 
       <h1>
         JÓVENES<br />
@@ -473,11 +513,15 @@
         <span class="amarillo"> DE VANGUARDIA </span>
       </h1>
 
-      <!-- INVITACION -->
+      <!-- =========================================
+         INVITACIÓN
+         ========================================= -->
 
       <p class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</p>
 
-      <!-- VERSICULO -->
+      <!-- =========================================
+         VERSÍCULO
+         ========================================= -->
 
       <div class="verse">
         <strong> “Nadie tenga en poco tu juventud...” </strong>
@@ -485,47 +529,53 @@
         <span> 1 Timoteo 4:12 </span>
       </div>
 
-      <!-- MENSAJE -->
+      <!-- =========================================
+         MENSAJE
+         ========================================= -->
 
       <p class="message">
         Dios tiene algo especial preparado para ti. No importa cómo haya sido tu
         semana, ven con un corazón dispuesto, porque juntos vamos a buscar a
         Dios, compartir y disfrutar de un tiempo increíble como jóvenes. ❤️‍🔥
 
-        <br /><br />
+        <br />
+        <br />
 
         <strong> ¡No te quedes en casa! Tu presencia hace falta. 🔥 </strong>
       </p>
 
-      <!-- INFORMACION -->
+      <!-- =========================================
+         INFORMACIÓN DEL SERVICIO
+         ========================================= -->
 
       <section class="info">
         <div class="info-box">
           📅
-
           <span class="yellow"> ESTE SÁBADO </span>
         </div>
 
         <div class="info-box">
           🕓
-
           <span class="yellow"> 4:00 PM </span>
         </div>
 
         <div class="info-box">
           🔥
-
           <span class="yellow"> SERVICIO DE JÓVENES </span>
         </div>
       </section>
 
-      <!-- PREGUNTA -->
+      <!-- =========================================
+         PREGUNTA
+         ========================================= -->
 
       <p class="question">¿Vas a estar con nosotros? 🙌</p>
 
       <p class="message">Queremos saber si contamos contigo.</p>
 
-      <!-- BOTONES -->
+      <!-- =========================================
+         BOTONES
+         ========================================= -->
 
       <div class="buttons">
         <button class="btn-si" onclick="mostrarRespuesta('si')">
@@ -537,17 +587,23 @@
         </button>
       </div>
 
-      <!-- RESPUESTA -->
+      <!-- =========================================
+         RESPUESTA
+         ========================================= -->
 
       <div id="respuesta"></div>
 
-      <!-- VOLVER -->
+      <!-- =========================================
+         BOTÓN VOLVER
+         ========================================= -->
 
       <button id="volver" class="volver" onclick="volverInicio()">
         ← Volver
       </button>
 
-      <!-- PIE -->
+      <!-- =========================================
+         PIE
+         ========================================= -->
 
       <div class="footer">
         Jóvenes de Vanguardia 🔥
@@ -557,6 +613,10 @@
         Un lugar para crecer, servir y buscar a Dios.
       </div>
     </main>
+
+    <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
 
     <script>
       function mostrarRespuesta(opcion) {
@@ -575,12 +635,14 @@
 
             ¡Nos alegra muchísimo saber que vienes!
 
-            <br><br>
+            <br>
+            <br>
 
             Prepárate para vivir un tiempo
             especial en la presencia de Dios.
 
-            <br><br>
+            <br>
+            <br>
 
             <strong>
               ¡Te esperamos este sábado
@@ -603,12 +665,14 @@
 
             No dejes pasar esta oportunidad.
 
-            <br><br>
+            <br>
+            <br>
 
             Dios puede tener una palabra
             especial para ti este sábado.
 
-            <br><br>
+            <br>
+            <br>
 
             A veces encontramos muchas
             razones para no ir, pero recuerda
@@ -616,7 +680,8 @@
             también necesita que apartes
             un tiempo para Dios.
 
-            <br><br>
+            <br>
+            <br>
 
             <strong>
               ¡Anímate! Te estamos esperando.
