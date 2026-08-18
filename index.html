@@ -6,26 +6,44 @@
 
     <title>Jóvenes de Vanguardia 🔥</title>
 
+    <meta name="theme-color" content="#0d1728" />
+
     <style>
       * {
         box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
         margin: 0;
         min-height: 100vh;
         font-family: "Segoe UI", Arial, sans-serif;
-        background: radial-gradient(
-          circle at top,
-          #263b63 0%,
-          #111827 45%,
-          #080c14 100%
-        );
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.12) 1px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 80% 30%,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 40% 80%,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 2px
+          ),
+          linear-gradient(135deg, #07101f, #111c31, #080e19);
+        background-size:
+          180px 180px,
+          230px 230px,
+          270px 270px,
+          cover;
         color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
         overflow-x: hidden;
       }
 
@@ -33,175 +51,257 @@
         position: fixed;
         inset: 0;
         pointer-events: none;
-        overflow: hidden;
+        z-index: 0;
       }
 
       .star {
         position: absolute;
-        color: #ffffff;
+        color: white;
+        opacity: 0.8;
         animation: twinkle 2s infinite alternate;
-        opacity: 0.7;
+      }
+
+      .star:nth-child(1) {
+        left: 8%;
+        top: 10%;
+        font-size: 18px;
+      }
+
+      .star:nth-child(2) {
+        left: 18%;
+        top: 32%;
+        font-size: 12px;
+      }
+
+      .star:nth-child(3) {
+        left: 85%;
+        top: 15%;
+        font-size: 20px;
+      }
+
+      .star:nth-child(4) {
+        left: 91%;
+        top: 42%;
+        font-size: 14px;
+      }
+
+      .star:nth-child(5) {
+        left: 6%;
+        top: 68%;
+        font-size: 13px;
+      }
+
+      .star:nth-child(6) {
+        left: 80%;
+        top: 75%;
+        font-size: 18px;
       }
 
       @keyframes twinkle {
         from {
-          opacity: 0.2;
-          transform: scale(0.7);
+          opacity: 0.25;
+          transform: scale(0.8);
         }
+
         to {
           opacity: 1;
           transform: scale(1.2);
         }
       }
 
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 25px 12px 50px;
+        position: relative;
+        z-index: 1;
+      }
+
       .card {
         width: 100%;
-        max-width: 600px;
-        background: rgba(17, 24, 39, 0.94);
-        border: 2px solid rgba(255, 213, 0, 0.35);
-        border-radius: 30px;
-        padding: 30px 22px;
+        max-width: 650px;
+        background: rgba(12, 22, 40, 0.96);
+        border: 2px solid rgba(255, 215, 0, 0.55);
+        border-radius: 28px;
+        padding: 28px 22px 35px;
         text-align: center;
         box-shadow:
-          0 20px 60px rgba(0, 0, 0, 0.55),
-          0 0 35px rgba(255, 213, 0, 0.08);
-        position: relative;
-        z-index: 2;
+          0 0 35px rgba(255, 193, 7, 0.12),
+          0 20px 60px rgba(0, 0, 0, 0.45);
+      }
+
+      /* LOGO */
+      .logo {
+        width: 180px;
+        max-width: 70%;
+        height: auto;
+        display: block;
+        margin: 0 auto 18px;
+        border-radius: 15px;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+      }
+
+      .fire {
+        font-size: 42px;
+        margin-bottom: 5px;
+        animation: fireMove 1.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes fireMove {
+        from {
+          transform: scale(1);
+        }
+
+        to {
+          transform: scale(1.12);
+        }
       }
 
       .badge {
         display: inline-block;
-        background: linear-gradient(135deg, #ffd900, #ff9d00);
-        color: #111827;
-        font-weight: 900;
-        padding: 8px 18px;
-        border-radius: 50px;
+        background: linear-gradient(135deg, #ffd000, #ffae00);
+        color: #101010;
+        padding: 9px 18px;
+        border-radius: 30px;
+        font-weight: 800;
         font-size: 14px;
-        margin-bottom: 15px;
-        box-shadow: 0 5px 20px rgba(255, 193, 7, 0.25);
+        box-shadow: 0 8px 20px rgba(255, 193, 7, 0.25);
+        margin-bottom: 18px;
       }
 
       h1 {
-        margin: 5px 0 8px;
-        font-size: clamp(38px, 10vw, 65px);
-        line-height: 1;
+        margin: 0;
+        font-size: clamp(42px, 12vw, 76px);
+        line-height: 0.95;
         font-weight: 900;
-        color: #ffffff;
-        text-shadow: 0 5px 20px rgba(255, 255, 255, 0.15);
+        letter-spacing: -2px;
+        text-transform: uppercase;
+        text-shadow: 0 5px 18px rgba(255, 255, 255, 0.15);
       }
 
       h1 span {
-        color: #ffd600;
-      }
-
-      .subtitle {
-        font-size: clamp(18px, 5vw, 24px);
-        color: #dbeafe;
-        margin-bottom: 25px;
-      }
-
-      .verse {
-        background: rgba(255, 255, 255, 0.07);
-        border-left: 4px solid #ffd600;
-        padding: 16px;
-        border-radius: 12px;
-        font-size: 17px;
-        line-height: 1.5;
-        margin-bottom: 25px;
-        color: #f3f4f6;
-      }
-
-      .verse strong {
-        color: #ffd600;
-      }
-
-      .event {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 214, 0, 0.15),
-          rgba(255, 255, 255, 0.05)
-        );
-        border: 1px solid rgba(255, 214, 0, 0.35);
-        border-radius: 22px;
-        padding: 22px 15px;
-        margin-bottom: 25px;
-      }
-
-      .event-title {
-        font-size: 30px;
-        font-weight: 900;
-        color: #ffd600;
-        margin-bottom: 10px;
-      }
-
-      .date {
-        font-size: 28px;
-        font-weight: 800;
+        display: block;
+        color: #ffd000;
         margin: 8px 0;
       }
 
-      .time {
-        font-size: 23px;
-        color: #dbeafe;
-        font-weight: 700;
+      .subtitle {
+        margin: 22px 0;
+        font-size: clamp(20px, 5vw, 27px);
+        font-weight: 600;
+        color: #e6edf7;
       }
 
-      .message {
+      .verse {
+        background: rgba(255, 255, 255, 0.08);
+        border-left: 5px solid #ffd000;
+        border-radius: 14px;
+        padding: 20px 17px;
+        margin: 20px 0;
         font-size: 18px;
-        line-height: 1.6;
-        color: #e5e7eb;
+        line-height: 1.55;
+      }
+
+      .verse strong {
+        color: #ffd000;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .invite {
         margin: 25px 0;
+        font-size: 19px;
+        line-height: 1.65;
+        color: #e8edf5;
       }
 
       .highlight {
-        color: #ffd600;
+        color: #ffd000;
+        font-weight: 800;
+      }
+
+      .event {
+        margin: 25px 0;
+        padding: 22px 15px;
+        border-radius: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 208, 0, 0.14),
+          rgba(255, 255, 255, 0.06)
+        );
+        border: 1px solid rgba(255, 208, 0, 0.35);
+      }
+
+      .event-title {
+        color: #ffd000;
+        font-size: 26px;
         font-weight: 900;
+        margin-bottom: 10px;
+      }
+
+      .event-info {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+
+      .buttons-title {
+        margin-top: 28px;
+        margin-bottom: 14px;
+        font-size: 19px;
+        font-weight: 700;
       }
 
       .buttons {
         display: flex;
-        flex-direction: column;
-        gap: 14px;
-        margin-top: 25px;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
       }
 
       button {
         border: none;
-        padding: 17px 20px;
-        border-radius: 50px;
-        font-size: 19px;
-        font-weight: 900;
         cursor: pointer;
-        transition:
-          transform 0.2s,
-          box-shadow 0.2s;
-        width: 100%;
+        padding: 15px 28px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 800;
+        transition: 0.25s ease;
+        min-width: 135px;
+      }
+
+      .yes {
+        background: linear-gradient(135deg, #ffd000, #ffad00);
+        color: #101010;
+        box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+      }
+
+      .no {
+        background: #2b3445;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      button:hover {
+        transform: translateY(-3px) scale(1.03);
       }
 
       button:active {
         transform: scale(0.96);
       }
 
-      .yes {
-        background: linear-gradient(135deg, #16a34a, #22c55e);
-        color: white;
-        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.25);
-      }
-
-      .no {
-        background: linear-gradient(135deg, #374151, #1f2937);
-        color: #f3f4f6;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-      }
-
       .response {
         display: none;
-        margin-top: 22px;
-        padding: 20px;
-        border-radius: 20px;
-        animation: appear 0.5s ease;
+        margin-top: 20px;
+        padding: 20px 17px;
+        border-radius: 18px;
         font-size: 18px;
-        line-height: 1.5;
+        line-height: 1.6;
+        animation: appear 0.5s ease;
       }
 
       .response.show {
@@ -209,40 +309,13 @@
       }
 
       .response.yes-response {
-        background: rgba(34, 197, 94, 0.14);
-        border: 1px solid rgba(34, 197, 94, 0.4);
+        background: rgba(255, 208, 0, 0.12);
+        border: 1px solid #ffd000;
       }
 
       .response.no-response {
-        background: rgba(255, 193, 7, 0.12);
-        border: 1px solid rgba(255, 193, 7, 0.4);
-      }
-
-      .response-title {
-        font-size: 25px;
-        font-weight: 900;
-        margin-bottom: 10px;
-      }
-
-      .footer {
-        margin-top: 25px;
-        color: #9ca3af;
-        font-size: 13px;
-      }
-
-      .fire {
-        font-size: 45px;
-        margin-bottom: 8px;
-        animation: fire 1.2s ease-in-out infinite alternate;
-      }
-
-      @keyframes fire {
-        from {
-          transform: translateY(0) scale(1);
-        }
-        to {
-          transform: translateY(-5px) scale(1.08);
-        }
+        background: rgba(220, 53, 69, 0.12);
+        border: 1px solid #ff6875;
       }
 
       @keyframes appear {
@@ -250,24 +323,41 @@
           opacity: 0;
           transform: translateY(15px);
         }
+
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
 
-      .floating {
-        position: fixed;
-        bottom: -30px;
-        font-size: 25px;
-        animation: floatUp linear forwards;
-        pointer-events: none;
-        z-index: 10;
+      .closing {
+        margin-top: 28px;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #cfd7e5;
       }
 
-      @keyframes floatUp {
+      .closing strong {
+        color: #ffd000;
+      }
+
+      .footer {
+        margin-top: 30px;
+        font-size: 13px;
+        color: #8994a7;
+      }
+
+      /* CORAZONES / FUEGO */
+      .particle {
+        position: fixed;
+        pointer-events: none;
+        z-index: 20;
+        animation: particleUp 4s linear forwards;
+      }
+
+      @keyframes particleUp {
         0% {
-          transform: translateY(0) rotate(0deg);
+          transform: translateY(0) scale(0.7);
           opacity: 0;
         }
 
@@ -276,180 +366,259 @@
         }
 
         100% {
-          transform: translateY(-110vh) rotate(25deg);
+          transform: translateY(-100vh) scale(1.4);
           opacity: 0;
         }
       }
 
-      @media (min-width: 600px) {
+      @media (max-width: 500px) {
+        .page {
+          padding: 12px 8px 35px;
+        }
+
+        .card {
+          border-radius: 22px;
+          padding: 24px 15px 30px;
+        }
+
+        .logo {
+          width: 145px;
+        }
+
+        .fire {
+          font-size: 36px;
+        }
+
+        .badge {
+          font-size: 12px;
+          padding: 8px 14px;
+        }
+
+        h1 {
+          font-size: 48px;
+        }
+
+        .subtitle {
+          font-size: 20px;
+        }
+
+        .verse {
+          font-size: 16px;
+        }
+
+        .invite {
+          font-size: 17px;
+        }
+
+        .event-title {
+          font-size: 23px;
+        }
+
+        .event-info {
+          font-size: 18px;
+        }
+
         .buttons {
-          flex-direction: row;
+          flex-direction: column;
+        }
+
+        button {
+          width: 100%;
         }
       }
     </style>
   </head>
 
   <body>
-    <div class="stars" id="stars"></div>
-
-    <div class="card">
-      <div class="fire">🔥</div>
-
-      <div class="badge">MINISTERIO JÓVENES DE VANGUARDIA</div>
-
-      <h1>
-        JÓVENES<br />
-        <span>DE VANGUARDIA</span>
-      </h1>
-
-      <div class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</div>
-
-      <div class="verse">
-        <strong>“Nadie tenga en poco tu juventud...”</strong><br />
-        1 Timoteo 4:12
-      </div>
-
-      <div class="event">
-        <div class="event-title">SERVICIO DE JÓVENES</div>
-
-        <div class="date">📅 ESTE SÁBADO</div>
-
-        <div class="time">🕓 4:00 PM</div>
-      </div>
-
-      <div class="message">
-        Dios tiene algo preparado para ti. ❤️‍🔥
-
-        <br /><br />
-
-        No importa cómo haya sido tu semana,
-        <span class="highlight">
-          ¡ven y comparte este tiempo con nosotros!
-        </span>
-
-        <br /><br />
-
-        Habrá palabra, adoración, alegría, compañerismo y, sobre todo, un
-        momento para acercarnos más a Dios. 🙏🔥
-
-        <br /><br />
-
-        <strong> ¡No te quedes en casa! Tu lugar está aquí. ❤️ </strong>
-      </div>
-
-      <div class="buttons">
-        <button class="yes" onclick="voy()">🙌 ¡SÍ, VOY!</button>
-
-        <button class="no" onclick="noVoy()">😔 NO VOY</button>
-      </div>
-
-      <div id="yesResponse" class="response yes-response">
-        <div class="response-title">🔥 ¡ESO ES! 🙌</div>
-
-        <div>
-          ¡Nos alegra mucho saber que vienes!
-          <br /><br />
-          Prepárate para vivir un tiempo increíble en la presencia de Dios. ❤️‍🔥
-          <br /><br />
-          <strong> ¡Te esperamos este sábado a las 4:00 PM! </strong>
-        </div>
-      </div>
-
-      <div id="noResponse" class="response no-response">
-        <div class="response-title">👀 ¡ESPERA, ESPERA!</div>
-
-        <div>
-          ¿Cómo que no vas? 😂
-          <br /><br />
-          No dejes que nada te robe la oportunidad de compartir con tus hermanos
-          y buscar a Dios juntos. 🙏
-          <br /><br />
-          <strong>
-            ¡Piénsalo otra vez! Tu silla te estará esperando. 🔥
-          </strong>
-        </div>
-      </div>
-
-      <div class="footer">
-        Jóvenes de Vanguardia ❤️‍🔥<br />
-        Una generación que busca a Dios.
-      </div>
+    <div class="stars">
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
     </div>
 
+    <main class="page">
+      <section class="card">
+        <!--
+                LOGO DE LA IGLESIA
+
+                IMPORTANTE:
+                Copia el logo desde D:\Iglesia
+                hacia D:\Descargas\jv
+
+                y ponle exactamente este nombre:
+
+                logo.png
+            -->
+
+        <img src="logo.png" alt="Logo de la iglesia" class="logo" />
+
+        <div class="fire">🔥</div>
+
+        <div class="badge">MINISTERIO JÓVENES DE VANGUARDIA</div>
+
+        <h1>
+          JÓVENES
+          <span>DE</span>
+          VANGUARDIA
+        </h1>
+
+        <div class="subtitle">¡Este sábado tenemos una cita! 🙌🔥</div>
+
+        <div class="verse">
+          <strong> “Nadie tenga en poco tu juventud...” </strong>
+
+          1 Timoteo 4:12
+        </div>
+
+        <div class="invite">
+          <p>Hey, joven 👋</p>
+
+          <p>
+            No queremos que te pierdas lo que Dios tiene preparado para nosotros
+            este sábado.
+          </p>
+
+          <p>
+            Será un tiempo para compartir, aprender, adorar y disfrutar juntos
+            como jóvenes. 🙌
+          </p>
+
+          <p class="highlight">¡Tu presencia hace falta! 🔥</p>
+        </div>
+
+        <div class="event">
+          <div class="event-title">📅 SERVICIO DE JÓVENES</div>
+
+          <div class="event-info">
+            🗓️ Este sábado
+            <br />
+            ⏰ 4:00 PM
+            <br />
+            📍 ¡Te esperamos!
+          </div>
+        </div>
+
+        <div class="buttons-title">¿Vas a acompañarnos? 👀</div>
+
+        <div class="buttons">
+          <button class="yes" onclick="ire()">🙌 ¡IRÉ!</button>
+
+          <button class="no" onclick="noIre()">😶 NO IRÉ</button>
+        </div>
+
+        <div id="yesResponse" class="response yes-response">
+          🔥 <strong>¡ESO ES!</strong> 🔥
+
+          <br /><br />
+
+          ¡Qué alegría saber que vas a estar con nosotros!
+
+          <br />
+
+          Prepárate porque será un tiempo increíble en la presencia de Dios. 🙌
+
+          <br /><br />
+
+          <strong> ¡Nos vemos este sábado a las 4:00 PM! </strong>
+        </div>
+
+        <div id="noResponse" class="response no-response">
+          😔 <strong>¡Ey, joven!</strong>
+
+          <br /><br />
+
+          ¿De verdad te lo vas a perder?
+
+          <br /><br />
+
+          Dios también quiere hacer algo especial contigo. No dejes que la
+          pereza, el cansancio o cualquier excusa te robe un momento que puede
+          cambiar tu vida.
+
+          <br /><br />
+
+          <strong> ¡Anímate y ven! 🔥 </strong>
+
+          <br /><br />
+
+          Todavía estás a tiempo de cambiar tu respuesta. 😉
+        </div>
+
+        <div class="closing">
+          <p>Somos una generación llamada a marcar la diferencia.</p>
+
+          <p>
+            <strong>
+              No somos el futuro... somos parte de lo que Dios está haciendo
+              HOY. 🔥
+            </strong>
+          </p>
+
+          <p>¡Te esperamos este sábado! 🙌</p>
+        </div>
+
+        <div class="footer">Ministerio Jóvenes de Vanguardia ❤️</div>
+      </section>
+    </main>
+
     <script>
-      // Estrellas de fondo
-      function createStars() {
-        const container = document.getElementById("stars");
+      function ire() {
+        const yes = document.getElementById("yesResponse");
+        const no = document.getElementById("noResponse");
 
-        for (let i = 0; i < 35; i++) {
-          const star = document.createElement("div");
+        no.classList.remove("show");
+        yes.classList.add("show");
 
-          star.className = "star";
-          star.innerHTML = "✦";
+        crearParticulas(["🔥", "🙌", "✨", "💛"], 25);
 
-          star.style.left = Math.random() * 100 + "vw";
-          star.style.top = Math.random() * 100 + "vh";
-          star.style.fontSize = 8 + Math.random() * 15 + "px";
-          star.style.animationDelay = Math.random() * 2 + "s";
-
-          container.appendChild(star);
-        }
-      }
-
-      createStars();
-
-      // Botón SÍ VOY
-      function voy() {
-        document.getElementById("noResponse").classList.remove("show");
-
-        document.getElementById("yesResponse").classList.add("show");
-
-        createFire(25);
-
-        window.scrollTo({
-          top: document.body.scrollHeight,
+        yes.scrollIntoView({
           behavior: "smooth",
+          block: "center",
         });
       }
 
-      // Botón NO VOY
-      function noVoy() {
-        document.getElementById("yesResponse").classList.remove("show");
+      function noIre() {
+        const yes = document.getElementById("yesResponse");
+        const no = document.getElementById("noResponse");
 
-        document.getElementById("noResponse").classList.add("show");
+        yes.classList.remove("show");
+        no.classList.add("show");
 
-        createFire(10);
+        crearParticulas(["😔", "💭", "🔥"], 12);
 
-        window.scrollTo({
-          top: document.body.scrollHeight,
+        no.scrollIntoView({
           behavior: "smooth",
+          block: "center",
         });
       }
 
-      // Efecto de emojis
-      function createFire(amount) {
-        const emojis = ["🔥", "❤️", "🙌", "✨", "⭐"];
+      function crearParticulas(simbolos, cantidad) {
+        for (let i = 0; i < cantidad; i++) {
+          setTimeout(function () {
+            const particle = document.createElement("div");
 
-        for (let i = 0; i < amount; i++) {
-          setTimeout(() => {
-            const item = document.createElement("div");
+            particle.className = "particle";
 
-            item.className = "floating";
+            particle.innerHTML =
+              simbolos[Math.floor(Math.random() * simbolos.length)];
 
-            item.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            particle.style.left = Math.random() * 100 + "vw";
 
-            item.style.left = Math.random() * 100 + "vw";
+            particle.style.bottom = "-30px";
 
-            item.style.animationDuration = 3 + Math.random() * 4 + "s";
+            particle.style.fontSize = 18 + Math.random() * 22 + "px";
 
-            item.style.fontSize = 18 + Math.random() * 20 + "px";
+            particle.style.animationDuration = 3 + Math.random() * 3 + "s";
 
-            document.body.appendChild(item);
+            document.body.appendChild(particle);
 
-            setTimeout(() => {
-              item.remove();
+            setTimeout(function () {
+              particle.remove();
             }, 7000);
-          }, i * 80);
+          }, i * 100);
         }
       }
     </script>
